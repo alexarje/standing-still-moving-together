@@ -1,0 +1,2 @@
+// Written by tools/make_year_body.py from the StillStanding365 watch files; do not edit.
+window.NUMBERS = Object.assign(window.NUMBERS || {}, {"yhr_n": "364", "yhr_peak": "90.1", "yhr_start": "88.3", "yhr_late": "75.0", "yhr_end": "75.2", "yhr_rise": "−5.79", "ytemp_n": "365", "ytemp_peak": "25.1", "ytemp_start": "24.9", "ytemp_late": "25.4", "ytemp_end": "25.5", "ytemp_rise": "+0.43", "yhrm_n": "364", "yhrm_hi": "March", "yhrm_hi_v": "82", "yhrm_lo": "August", "yhrm_lo_v": "68"});

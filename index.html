@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standing still, moving together · ARJ · McMaster colloquium, 19 November 2026</title>
+<link rel="stylesheet" href="lib/reveal/reset.css">
+<link rel="stylesheet" href="lib/reveal/reveal.css">
+<link rel="stylesheet" href="lib/reveal/theme/white.css" id="theme">
+<style>
+  @font-face { font-family: "Inter"; src: local("Inter Regular"), url("lib/fonts/Inter-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: block; }
+  @font-face { font-family: "Inter"; src: local("Inter Italic"), url("lib/fonts/Inter-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: block; }
+  @font-face { font-family: "Inter"; src: local("Inter SemiBold"), url("lib/fonts/Inter-SemiBold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: block; }
+  @font-face { font-family: "Inter"; src: local("Inter Bold"), url("lib/fonts/Inter-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: block; }
+  @font-face { font-family: "Inter"; src: local("Inter Bold Italic"), url("lib/fonts/Inter-BoldItalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: block; }
+  :root {
+    --r-main-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --r-heading-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --r-heading-text-transform: none;
+    --r-heading-font-weight: 700;
+    --r-heading1-size: 2.4em;
+    --r-heading2-size: 1.7em;
+    --r-heading3-size: 1.2em;
+    --r-main-font-size: 50px;
+    --r-link-color: #5a4fcf; --r-main-color: #363644; --r-heading-color: #363644;
+    --accent: #5a4fcf; --good: #2f855a; --bad: #c53030; --muted: #718096;
+    --mm-purple: #A7A1F4; --mm-green: #C1F7AE; --mm-dark: #363644;
+  }
+  .reveal h1, .reveal h2, .reveal h3, .reveal .big { letter-spacing: -0.022em; }
+  .reveal h1, .reveal h2, .reveal h3 { margin-bottom: 0.4em; }
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+  .reveal p, .reveal li { line-height: 1.35; }
+  .reveal ul { margin-left: 0.6em; }
+  .reveal li { margin: 0.25em 0; }
+  .reveal img, .reveal svg { max-height: 62vh; box-shadow: none; border: none; background: none; }
+  .reveal img.shot { border: 1px solid #cbd5e0; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+  .reveal img.photo { border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .reveal .fig { display: block; width: 100%; max-height: 72vh; margin: 0 auto; }
+  .reveal .tall { max-height: 78vh; }
+  .kicker { color: var(--muted); font-size: 0.6em; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .2em; }
+  .big { font-size: 1.5em; font-weight: 700; line-height: 1.2; }
+  .huge { font-size: 3.2em; font-weight: 700; line-height: 1.1; }
+  .good { color: var(--good); } .bad { color: var(--bad); } .accent { color: var(--accent); } .muted { color: var(--muted); }
+  .purple { color: #5a4fcf; } .green { color: #2f855a; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: center; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; align-items: start; }
+  .cols.top { align-items: start; }
+  .card { border: 2px solid #e2e8f0; border-radius: 12px; padding: .5em .7em; font-size: .7em; height: 100%; box-sizing: border-box; }
+  .card h3 { font-size: 1.15em; margin: 0 0 .3em 0; }
+  .card-ill { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; margin-top: .3em; }
+  .layers { position: relative; margin: 0 auto; }
+  .reveal .layers img { display: block; width: 100%; height: auto; max-height: none; margin: 0; }
+  .reveal .layers img + img { position: absolute; left: 0; top: 0; }
+  .card.purple { border-color: var(--mm-purple); } .card.green { border-color: #8fd67a; }
+  .caption { font-size: .55em; color: var(--muted); margin-top: .3em; }
+  .reveal a { text-decoration: underline; text-decoration-color: rgba(43,108,176,.4); text-underline-offset: 3px; }
+  .quote { font-size: 1.05em; font-style: italic; border-left: 6px solid var(--mm-purple); padding-left: .6em; margin: .4em 0; }
+  .reveal .footer { position: fixed; bottom: 14px; left: 22px; font-size: 14px; color: #a0aec0; z-index: 10; }
+  .reveal .progress { color: var(--accent); }
+
+  /* Map of the talk */
+  .map { display: grid; grid-template-columns: repeat(6, 1fr); gap: .35em; font-size: .5em; width: 100%; }
+  .map div { border: 2px solid #e2e8f0; border-radius: 8px; padding: .5em .3em; text-align: center; min-height: 3em; display: flex; align-items: center; justify-content: center; }
+  .map .h { background: #f0eefc; border-color: var(--mm-purple); font-weight: 700; }
+  .map .mm { background: #eefbe8; border-color: #8fd67a; font-weight: 700; }
+
+  /* Headline collage */
+  .collage { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5em; align-items: center; }
+  .collage img { max-height: 34vh; width: 100%; object-fit: cover; object-position: top; border: 1px solid #cbd5e0; border-radius: 6px; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+  .collage img:nth-child(odd) { transform: rotate(-2deg); }
+  .collage img:nth-child(even) { transform: rotate(1.5deg); }
+
+  /* Photo grids */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; }
+  .grid3 figure { margin: 0; text-align: center; }
+  .grid3 img { width: 100%; height: 30vh; object-fit: cover; border-radius: 8px; }
+  .grid3 figcaption { font-size: .5em; color: var(--muted); margin-top: .2em; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; }
+  .grid2 figure { margin: 0; text-align: center; }
+  .grid2 img { width: 100%; height: 60vh; object-fit: cover; border-radius: 10px; }
+  .grid2 figcaption { font-size: .5em; color: var(--muted); margin-top: .3em; }
+
+  /* Embedded apps and videos */
+  .appwrap { width: 1800px; height: 880px; overflow: hidden; margin: 0 auto; border: 2px solid #e2e8f0; border-radius: 12px; }
+  .appwrap iframe { width: 1200px; height: 587px; transform: scale(1.5); transform-origin: 0 0; border: 0; }
+  .reveal pre.code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: .55em; line-height: 1.4; background: #f7fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: .8em 1em; margin: 0; text-align: left; white-space: pre; box-shadow: none; width: auto; }
+  .reveal table.cmp { font-size: .7em; border-collapse: collapse; margin: 0; width: 100%; text-align: left; }
+  .reveal table.cmp th, .reveal table.cmp td { padding: .3em .8em; border-bottom: 2px solid #e2e8f0; }
+  .reveal table.cmp th { font-weight: 700; }
+  .reveal .strip { font-size: 3.2em; font-weight: 700; margin: 0; line-height: 1.1; }
+  .netwrap { width: 1800px; height: 880px; overflow: hidden; margin: 0 auto; border: 2px solid #e2e8f0; border-radius: 12px; }
+  .reveal .netwrap iframe { width: 1800px; max-width: none; height: 1500px; max-height: none; margin-top: -560px; border: 0; }
+  .video { width: 1600px; height: 900px; border: 0; margin: 0 auto; display: block; border-radius: 12px; background: #000; }
+
+  /* Word slides */
+  .words { display: flex; gap: .4em; align-items: baseline; flex-wrap: wrap; }
+  .words .w { font-size: 1.9em; font-weight: 700; }
+  .multi { font-size: 2.2em; font-weight: 700; line-height: 1.15; }
+  .multi span { display: block; padding-left: 1.6em; }
+  .multi .pre { padding-left: 0; color: var(--muted); }
+  .sectors { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1em; margin-top: 1em; align-items: start; text-align: center; font-size: .55em; }
+  .sectors svg { display: block; width: 55%; height: auto; aspect-ratio: 1; margin: 0 auto .4em; }
+  .sentence { font-size: 1.35em; line-height: 1.5; font-weight: 500; }
+  .sentence .stack { display: inline-flex; flex-direction: column; vertical-align: middle; line-height: 1.05; margin: 0 .25em; }
+  .sentence .stack span.purple, .sentence .stack span.green { font-weight: 700; }
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: .3em .6em; align-items: center; font-size: .95em; margin: .25em 0; }
+  .vs .l { text-align: right; color: #5a4fcf; font-weight: 700; } .vs .r { text-align: left; color: #2f855a; font-weight: 700; } .vs .m { color: var(--muted); font-size: .6em; }
+  .nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; text-align: center; }
+  .nums div { border-radius: 14px; padding: .5em .3em; background: #f0eefc; }
+  .nums div:nth-child(even) { background: #eefbe8; }
+  .nums b { display: block; font-size: 2.2em; line-height: 1.1; }
+  .nums span { font-size: .6em; color: #4a5568; }
+  .nums span span { font-size: 1em; }   /* a number inside the text does not inherit the size twice */
+  .wish { font-size: 1.05em; margin: .45em 0; display: flex; gap: .5em; align-items: baseline; }
+  .wish b { color: #5a4fcf; font-size: 1.4em; min-width: 1.2em; }
+  .qmark { font-size: 14em; font-weight: 700; line-height: 1; color: var(--mm-purple); }
+  .qmark i { font-style: normal; color: #8fd67a; }
+  .overlay { background: rgba(255,255,255,.82); display: inline-block; padding: .3em .7em; border-radius: 12px; }
+
+
+  /* Deck additions */
+  .reveal img.fig { width: auto; max-width: 100%; object-fit: contain; }
+  .roles { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1em; align-items: center; text-align: center; }
+  .roles .r p { font-size: 1.1em; font-weight: 700; margin: 1.2em 0; }
+  .reveal .overlay { position: absolute; left: 0; bottom: 0; text-align: left; }
+  .reveal .overlay .kicker { margin-bottom: .1em; }
+  html:not(.dark) .reveal .slides section.has-dark-background .overlay { color: var(--r-main-color); }   /* light box on a dark slide: keep the dark text */
+  html.dark .reveal img.fig.keep, html.dark .reveal .layers img.keep { filter: none; }
+  html.dark .reveal img.panel { background: #fff; border-radius: 14px; padding: 12px; box-sizing: border-box; }   /* the book's figure on a white background */
+  /* The atlas: twelve round images, point for sound and numbers */
+  .atlas { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5em 1em; width: 1700px; max-width: 100%; margin: 0 auto; }
+  .atlas figure { margin: 0; cursor: pointer; }
+  .reveal .atlas img { width: 240px; height: 240px; border-radius: 50%; margin: 0; display: block; margin: 0 auto; transition: transform .2s; }
+  .atlas figure.on img { transform: scale(1.12); box-shadow: 0 0 0 8px var(--accent, #A7A1F4); }
+  .atlas figcaption { font-size: .55em; margin-top: .25em; }
+  .reveal .atlas-facts { font-size: .62em; line-height: 1.35; min-height: 3.2em; margin: .6em auto 0; max-width: 1500px; color: #4a5568; }
+  html.dark .reveal .atlas-facts { color: #cbd5e0; }
+  .reveal .atlas-facts.on { color: inherit; }
+  /* The closing slide: the emblems in the bottom corners, on white tiles in both modes */
+  .reveal .corner-logo { position: absolute; bottom: 0; height: 120px; width: 120px; object-fit: contain; margin: 0; background: #fff; border-radius: 12px; padding: 10px; box-sizing: border-box; }
+  .reveal .corner-logo.rcn { right: 0; width: 300px; padding: 10px 16px; }
+  html.dark .reveal img.photo.keep { filter: none; }
+  #sound { position: fixed; right: 22px; bottom: 40px; z-index: 10; font-size: 16px; color: var(--accent); }
+  body.on-surface #sound { display: none; }
+  #depth { position: fixed; right: 22px; bottom: 14px; z-index: 10; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #a0aec0; }
+  body.on-surface .footer, body.on-surface #depth { display: none; }
+  html.dark #depth { color: #4a5568; }
+  @media print { #depth { display: none; } }
+
+  /* ---- Dark mode ---- */
+  html.dark {
+    --r-background-color: #14171c;
+    --r-main-color: #e6e9ee;
+    --r-heading-color: #ffffff;
+    --r-link-color: #b8b3ff;
+    --muted: #a0aec0;
+    --accent: #b8b3ff; --good: #68d391; --bad: #fc8181;
+    color-scheme: dark;
+  }
+  html.dark body, html.dark .reveal-viewport { background: #14171c; }
+  html.dark .reveal .card, html.dark .map div, html.dark .appwrap, html.dark .netwrap, html.dark .reveal table.cmp th, html.dark .reveal table.cmp td { border-color: #2d3748; }
+  html.dark .reveal pre.code { background: #1a202c; border-color: #2d3748; }
+  html.dark .reveal .card.purple { border-color: var(--mm-purple); } html.dark .reveal .card.green { border-color: #8fd67a; }
+  html.dark .map .h { background: #26243a; } html.dark .map .mm { background: #1f2e1c; }
+  html.dark .nums div { background: #26243a; } html.dark .nums div:nth-child(even) { background: #1f2e1c; } html.dark .nums span { color: #cbd5e0; }
+  html.dark .purple { color: #b8b3ff; } html.dark .green { color: #9ae6b4; } html.dark .vs .l { color: #b8b3ff; } html.dark .vs .r { color: #9ae6b4; } html.dark .wish b { color: #b8b3ff; }
+  html.dark .reveal img.shot, html.dark .collage img { border-color: #2d3748; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+  html.dark .reveal img.fig, html.dark .reveal .layers img { filter: invert(0.93) hue-rotate(180deg); }
+  /* inline SVGs adapt via currentColor; these two fills swap with the theme */
+  .reveal svg .paper { fill: #fff; } .reveal svg .panel { fill: #f7f7fb; }
+  html.dark .reveal svg .paper { fill: #1a1d24; } html.dark .reveal svg .panel { fill: #262b36; }
+  html.dark .overlay { background: rgba(20,23,28,.8); }
+  html.dark .reveal .footer { color: #4a5568; }
+  html.dark .reveal .progress, html.dark .reveal .controls { color: var(--accent); }
+  html.dark .reveal .slide-number { background: transparent; color: #718096; }
+  #theme-toggle {
+    position: fixed; top: 14px; right: 18px; z-index: 50;
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid #cbd5e0;
+    background: rgba(255,255,255,.85); color: #4a5568; font-size: 20px; line-height: 1;
+    cursor: pointer; opacity: .35; transition: opacity .2s;
+  }
+  #theme-toggle:hover, #theme-toggle:focus { opacity: 1; }
+  html.dark #theme-toggle { background: rgba(20,23,28,.85); border-color: #4a5568; color: #e2e8f0; }
+  @media print { #theme-toggle { display: none; } }
+  /* This deck */
+  .reveal .layers { width: 78%; }
+  .reveal .layers.wide { width: 92%; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center; justify-items: center; }
+  .reveal .pair img { max-height: 66vh; width: auto; max-width: 100%; }
+  .reveal img.round { border-radius: 50%; width: 560px; max-width: 100%; height: auto; }
+  .reveal img.full { max-height: 70vh; width: auto; max-width: 100%; display: block; margin: 0 auto; }
+  .quoteover { font-size: 2.2em; font-weight: 700; line-height: 1.15; }
+  .reveal .overlay p.line { font-size: .8em; }
+  .clocks p { font-size: 1.5em; font-weight: 700; margin: .35em 0; }
+  .clocks p span { display: block; font-size: .55em; font-weight: 400; }
+  /* Animations of standstill data (lib/standstill.js) */
+  .reveal canvas { display: block; margin: 0 auto; max-width: 100%; }
+  /* Kept from the earlier colloquium deck */
+  .reveal .layers img.fragment { position: absolute; left: 0; top: 0; }
+  .reveal .cols img.fig, .reveal .cols3 img.fig { width: 100%; }
+  /* Pictograms (tools/make_pictograms.py): light and dark files swapped by swapFigures(), never inverted */
+  .reveal img.picto { display: inline-block; height: 1.3em; width: auto; vertical-align: middle; margin: 0 .2em 0 0; max-height: none; }
+  html.dark .reveal img.picto { filter: none; }
+  .reveal .strip-icons { display: flex; gap: .7em; justify-content: center; margin: 0 0 .5em; }
+  .reveal .strip-icons img.picto { height: 170px; margin: 0; }
+  .reveal .kicker img.picto { height: 2.4em; margin-right: .35em; }
+  .reveal .card h3 img.picto { height: 1.6em; }
+  .reveal .big img.picto, .reveal .huge img.picto { height: 1em; }
+  /* A photograph beside a figure: the photograph says where the number comes from */
+  .photofig { display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: center; }
+  .reveal .photofig > img.photo { max-height: 66vh; width: auto; max-width: 560px; margin: 0; }
+  .reveal .photofig .layers { width: 100%; }
+  /* The emblems along the bottom of the title slide, as on the closing slide */
+  .reveal .title-logos { position: relative; height: 1080px; pointer-events: none; }   /* fills the slide, so the emblems sit at its foot */
+  .reveal p.ref { color: var(--muted); font-size: .42em; margin: .9em 0 0; letter-spacing: .01em; }
+  .reveal .refs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.2em; text-align: left; font-size: .36em; line-height: 1.3; }
+  .reveal .refs p { margin: 0 0 .55em; padding-left: 1.2em; text-indent: -1.2em; }
+  .reveal .qa { display: grid; grid-template-columns: auto auto; gap: .34em 1.6em; justify-content: center; text-align: left; font-size: 1em; }
+  .reveal .qa p { margin: 0; }
+  .reveal .qa .q { font-weight: 700; }
+  .reveal .qa .a { color: var(--accent); }
+  .reveal p.thanks { color: var(--muted); font-size: .4em; line-height: 1.45; max-width: 1350px; margin: .6em auto 0; }
+  .reveal .people { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px 6px; max-width: 1780px; margin: .5em auto 0; }
+  .reveal .people div { display: flex; flex-direction: column; align-items: center; }
+  .reveal .people img, .reveal .people .ini { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; margin: 0; }
+  .reveal .people .ini { display: flex; align-items: center; justify-content: center; background: var(--mm-purple); color: var(--mm-dark); font-weight: 700; font-size: .5em; }
+  .reveal .people p { font-size: .27em; line-height: 1.2; margin: .35em 0 0; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<script>
+  // Set the theme before first paint: the saved choice, else ?dark or ?light, else the system preference.
+  (function () {
+    var saved = null; try { saved = localStorage.getItem('mcmaster-colloquium-theme'); } catch (e) {}
+    var q = location.search;
+    var dark = /[?&]dark\b/.test(q) ? true : /[?&]light\b/.test(q) ? false : saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
+<button id="theme-toggle" type="button" title="Toggle light/dark (key d)" aria-label="Toggle light/dark mode">◐</button>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===================== 0 TITLE ===================== -->
+<section>
+  <section data-background-image="images/title.jpg" data-background-size="cover" data-background-position="center">
+    <div class="overlay" style="max-width:94%;top:380px;bottom:auto">
+      <p class="kicker" style="margin:0 0 .2em">McMaster University · Department colloquium · 19 November 2026</p>
+      <h1 style="margin:0;font-size:1.9em;white-space:nowrap">Standing still, moving together</h1>
+      <p style="font-size:.9em;margin:.1em 0 0">What micromotion reveals about music and the body</p>
+    </div>
+    <div class="overlay" style="max-width:86%;top:790px;bottom:auto">
+      <p style="font-size:.7em;margin:0">Alexander Refsum Jensenius · Department of Musicology, University of Oslo</p>
+    </div>
+    <div class="title-logos">
+      <img class="corner-logo" src="images/uio-seal.svg" alt="University of Oslo" style="left:0">
+      <img class="corner-logo" src="images/fourms-logo.png" alt="fourMs Lab" style="left:150px">
+      <img class="corner-logo" src="images/mishmash-tile-purple.svg" alt="MishMash" style="left:300px;padding:0">
+      <img class="corner-logo" src="images/ritmo-emblem.svg" alt="RITMO" style="left:450px">
+      <img class="corner-logo rcn" src="images/rcn-funded-by.svg" alt="Funded by the Research Council of Norway">
+    </div>
+    <aside class="notes">About fifty minutes, then questions. The background is my own photograph of the glowing ribbons; along the bottom are the University of Oslo, the fourMs Lab, MishMash, RITMO and the Research Council of Norway, as on the closing slide. The question of the talk: how much does a person move when trying not to, and what does that small residue tell us about music and the body? And underneath it a second question, which this deck inherits from a symposium on time at the Norwegian Academy of Science and Letters on 16 November: how long are ten minutes? For the clock, the answer is simple. For the body, it is surprisingly simple. For the person standing there, it is not simple at all. The order of the talk: first the standstill itself, then what the signal is made of across the body and its rhythms; then music, the beat and the urge to move; then people, alone and together; and last one body through a year, and time.</aside>
+  </section>
+  <section>
+    <div class="layers" style="width:1700px">
+      <img class="fig keep" src="images/fig-artsci-0.svg" data-dark="images/fig-artsci-dark-0.svg" alt="">
+      <img class="fig keep fragment" src="images/fig-artsci-1.svg" data-dark="images/fig-artsci-dark-1.svg" alt="Art">
+      <img class="fig keep fragment" src="images/fig-artsci-5.svg" data-dark="images/fig-artsci-dark-5.svg" alt="Science">
+      <img class="fig keep fragment" src="images/fig-artsci-6.svg" data-dark="images/fig-artsci-dark-6.svg" alt="Phenomenology">
+      <img class="fig keep fragment" src="images/fig-artsci-7.svg" data-dark="images/fig-artsci-dark-7.svg" alt="Psychology">
+      <img class="fig keep fragment" src="images/fig-artsci-8.svg" data-dark="images/fig-artsci-dark-8.svg" alt="Technology">
+      <img class="fig keep fragment" src="images/fig-artsci-outer.svg" data-dark="images/fig-artsci-dark-outer.svg" alt="Physiology, kinesiology and physics, in an arc to the right of the three">
+      <img class="fig keep fragment" src="images/fig-artsci-2.svg" data-dark="images/fig-artsci-dark-2.svg" alt="Music">
+      <img class="fig keep fragment" src="images/fig-artsci-3.svg" data-dark="images/fig-artsci-dark-3.svg" alt="Performance">
+      <img class="fig keep fragment" src="images/fig-artsci-4.svg" data-dark="images/fig-artsci-dark-4.svg" alt="Installation">
+      <img class="fig keep fragment" src="images/fig-artsci-outer-art.svg" data-dark="images/fig-artsci-dark-outer-art.svg" alt="Photography, video and dance, to the left of the three">
+      <img class="fig keep" src="images/fig-artsci-me.svg" data-dark="images/fig-artsci-dark-me.svg" alt="Portrait of Alexander between art and science">
+    </div>
+    <aside class="notes">A word about how I work: between art and science. (Click.) Art on one side, (click) science on the other. In science (click for each) three ways in: phenomenology, the first-person experience; psychology, what we can test in many people; and technology, the tools to measure and make. (Click.) Behind them lie three more disciplines, which I keep apart from the others: physiology, the body's own processes; kinesiology, the study of the body's motion; and physics, what actually moves and oscillates. In art (click for each): music, performance and installation; I make and perform music and build installations myself. (Click.) Then came photography, video and dance: the year of standstill is also a series of images and recordings, and much of the work has been done with dancers. None of them is enough alone. My approach is to build bridges between all of it, between the disciplines and between art and science. I stand in the overlap, and so does the standstill work: it began as an artistic project and became a series of measurements, and the talk moves between measurements and my own experience.</aside>
+  </section>
+  <section>
+    <div class="layers" style="width:1760px">
+      <img class="fig keep" src="images/fig-timeline-0.svg" data-dark="images/fig-timeline-dark-0.svg" alt="Timeline of the standstill recordings: Sverm sessions, Championships of Standstill and the year of ten minutes every day">
+      <img class="fig keep fragment" src="images/fig-timeline-1.svg" data-dark="images/fig-timeline-dark-1.svg" alt="Sverm: artistic research, from the first session until today">
+      <img class="fig keep fragment" src="images/fig-timeline-2.svg" data-dark="images/fig-timeline-dark-2.svg" alt="MICRO: science of humans, with an arrow from Sverm">
+      <img class="fig keep fragment" src="images/fig-timeline-3.svg" data-dark="images/fig-timeline-dark-3.svg" alt="AMBIENT: science of environments, with an arrow from MICRO">
+      <img class="fig keep fragment" src="images/fig-timeline-4.svg" data-dark="images/fig-timeline-dark-4.svg" alt="RITMO: centre for rhythm, time and motion">
+      <img class="fig keep fragment" src="images/fig-timeline-5.svg" data-dark="images/fig-timeline-dark-5.svg" alt="MishMash: centre for AI and creativity">
+      <img class="fig keep fragment" src="images/fig-timeline-6.svg" data-dark="images/fig-timeline-dark-6.svg" alt="The fourMs Lab, from its start onwards, and the line for today">
+    </div>
+    <aside class="notes">At the bottom are the recordings: the Sverm sessions, the Championships of Standstill and the year in which I stood still every day. (Click.) It began as artistic research in Sverm, where we stood still together and wrote down what we noticed, and that work still continues. (Click.) In MICRO it became a science of humans, with the championships and the lab studies. (Click.) In AMBIENT it became a science of environments: we turned the question round and looked at what the surroundings, the sound and the room, do to a body standing still, and that is the year of 365 days. (Click.) The two centres hold both sides: RITMO for rhythm, time and motion, where time and the body's clocks belong, (click) and MishMash for artificial intelligence and creativity, where the methods go next, and where the book and these slides were made together with an agent. (Click.) And under it all lies the fourMs Lab, where everything was measured, from the lab's beginning and on past today, soon as HumanLab. Purple is art, green is science, and the centres span from one to the other.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="big">Zero-point musicology</p>
+    <p class="kicker fragment" style="margin:.8em 0 0">basic research at music's zero point</p>
+    <aside class="notes">What kind of musicology is this? I have played with the words. Micromusicology is taken: Mark Slobin's micromusics are the music of small groups, not of short spans of time. Nano and atto would borrow chemistry's prefixes for something I do not do; I measure millimetres and milliseconds. It is not about size, but about where I stand. (Click.) I study what is left when the music is taken away: the body's own motion and the time it lives in, below the threshold of the musical event. Physics says that a molecule vibrates even at absolute zero. The body moves even when it tries to stand still. Hence zero-point musicology: basic research at music's zero point.</aside>
+  </section>
+  <section>
+    <div style="display:flex;align-items:center;justify-content:center;gap:70px;height:940px">
+      <div style="text-align:left;max-width:640px">
+        <p class="big" style="margin:0">Still Standing</p>
+        <p style="font-size:.8em;margin:.4em 0 0">The Art and Science of Human Micromotion and Bodily Rhythms</p>
+        <p class="fragment" style="font-size:.7em;margin:1.2em 0 0">Cambridge University Press, forthcoming, open access</p>
+      </div>
+      <img class="fig keep" src="images/book-manuscript.jpg" alt="Eight pages of the book manuscript: the title page and seven pages with photographs, motiongrams and plots" style="height:900px;width:auto;max-height:none;margin:0;border-radius:8px">
+    </div>
+    <aside class="notes">Everything in this talk comes from a book I am finishing now: Still Standing, with the subtitle The Art and Science of Human Micromotion and Bodily Rhythms. The pages on the right are from the manuscript as it stood this morning. It gathers fifteen years of standing still: the Sverm sessions, the championships, the lab studies and the year of daily standstills, with the data and the analyses openly archived beside it. (Click.) It is under contract with Cambridge University Press and will be open access; the manuscript is due in January. So what you hear today is a book in its last weeks of writing, and your questions can still change it.</aside>
+  </section>
+</section>
+
+<!-- ===================== 1 STANDSTILL ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>Standstill</h1>
+    <aside class="notes">First the standstill itself, which is what I actually do: how much a still person moves, how large the motion is, what shape it has and how it unfolds over ten minutes.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="big">Please stand up.</p>
+    <p class="big fragment">Close your eyes.</p>
+    <p class="big fragment">Sit down when you think a minute has passed.</p>
+    <aside class="notes">Before any data, an experiment with the room. Ask everyone to stand, (click) close their eyes, (click) and sit down when they think one minute has passed. Time it on the phone and say nothing while it runs. When everyone is seated, say how long it actually took, and point out the spread: some sat down early, some stayed standing for a long time. At the Norwegian Academy on 16 November the first people sat down well before the minute and some were still standing at twice the minute, when I stopped it. That is the whole talk in miniature: the clock ran at the same speed for everybody, and the bodies stood about equally still, but the minute was not the same length. Allow a few minutes for this, and stop it at twice the minute if needed. Come back to it on the three kinds of time near the end.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="big">How much do you think your head moved?</p>
+    <p class="big fragment">In mm/s?</p>
+    <aside class="notes">While people sit down, one more question. How much do you think your head moved while you stood there? (Click.) And in millimetres per second? Let them guess aloud for a moment and do not give the answer; it comes on the next slide. I have not measured you, but I have measured several hundred other people, so I can say fairly precisely. Nothing stands still, from the molecule, which vibrates even at absolute zero, to the body trying to stand still.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="pair">
+      <canvas data-anim="trace" data-speed="20" width="820" height="820" aria-label="The head's path seen from above, drawn as it goes"></canvas>
+      <div>
+        <p class="huge accent fragment"><span data-n="grand"></span></p>
+        <p class="big fragment"><img class="picto keep" src="images/picto/head.svg" data-dark="images/picto/head-dark.svg" alt="">mm/s</p>
+      </div>
+    </div>
+    <aside class="notes">(Click for the number, click for the unit.) This is the number everything turns on. When an adult stands as still as possible, the head moves with a median of <span data-n="grand"></span> millimetres per second, measured with a reflective marker on the head and filtered to <span data-n="band"></span> Hz, where the body's sway lives. Over six championships and <span data-n="n38"></span> participants, the median per championship lies between <span data-n="band_lo"></span> and <span data-n="band_hi"></span>. The band matters: without a lower edge, the slow postural drift is included and the number is higher and less stable. It is slow enough that nobody around you can see it, and fast enough that every motion-capture system we have used picks it up. The number is so stable that much of the rest of the research has been about what fails to disturb it. The path being drawn is the head of one participant in the <span data-n="head_year"></span> championship, seen from above and 20 times faster than real time, at <span data-n="head_qom"></span> millimetres per second, close to the median; the line bottom left is one centimetre. Press L and the path is heard: the pitch is the head's position front to back, the panning side to side, the loudness the speed.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="grid2">
+      <figure><img src="images/championship-1.jpg" alt="Participants standing still in a row in the lab during a Championship of Standstill, each at their own sheet on the floor"></figure>
+      <figure class="fragment"><img src="images/championship-2.jpg" alt="Participants standing still in the lab while a photographer films"></figure>
+    </div>
+    <p class="kicker fragment" style="margin:.8em 0 0">Norwegian Championship of Standstill · 2015</p>
+    <aside class="notes">This is what a championship looks like. One group at a time stands on the floor of the lab, each in their own place, with a reflective marker on the head, while the cameras around follow the markers. It is a public science event as much as a competition: people come in groups, with friends, and the winner gets a prize. That format is why we could collect so many people, and also why the data need care. (Click for the second photograph, click for the caption.) Both photographs are from the 2015 edition.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">QoM?</p>
+    <aside class="notes">Quantity of motion, QoM: how far the head travels per second. It is the measure the whole talk rests on, so before the numbers, a word about how it is computed, because that turns out to matter.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-uncorr-a.png" alt="Empty axis: head speed in millimetres per second, the championships from 2012 to 2022">
+      <img class="fragment" src="images/fig-uncorr-1.png" alt="">
+      <img class="fragment" src="images/fig-uncorr-2.png" alt="">
+      <img class="fragment" src="images/fig-uncorr-3.png" alt="">
+      <img class="fragment" src="images/fig-uncorr-4.png" alt="">
+      <img class="fragment" src="images/fig-uncorr-5.png" alt="">
+      <img class="fragment" src="images/fig-uncorr.png" alt="Bar chart of head speed per championship, unfiltered: from 6.5 to 10.6 millimetres per second">
+    </div>
+    <aside class="notes">First, the number as we used to compute it: the distance the head marker travels per second, straight from the cameras. (Click for each championship, six clicks.) Championship by championship it goes from <span data-n="unc_lo"></span> mm/s in <span data-n="unc_lo_ed"></span> to <span data-n="unc_hi"></span> in <span data-n="unc_hi_ed"></span>, a factor of <span data-n="unc_spread"></span>. For years we read differences like these as differences between groups of people, or between the music they heard. Are people in <span data-n="unc_hi_ed"></span> really so much more restless than people in <span data-n="unc_lo_ed"></span>?</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-bandspec-0.png" alt="The spectrum of head motion in each championship: the six curves coincide at low frequencies and spread apart above about 5 Hz">
+      <img class="fragment" src="images/fig-bandspec-1.png" alt="The same, with the band from 0.2 to 5 Hz shaded as where a body moves">
+      <img class="fragment" src="images/fig-bandspec-2.png" alt="The same, with lines at 0.2 and 5 Hz marking where to filter">
+    </div>
+    <aside class="notes">Where does the difference come from? This is how much the heads move at each frequency, slow on the left, fast on the right, one line per championship, the median over everyone. On the left the six lines lie on top of each other: the same people, the same body. On the right they spread apart, and the legend says why: different camera systems, Qualisys and OptiTrack, at 100, 120 and 200 pictures a second. That fast part is the cameras' own jitter, and in two championships also the sound of the music shaking the markers, which comes later in the talk. (Click.) A body sways, breathes and beats below about 5 Hz. (Click.) So we filter at both ends. Below 0.2 Hz, periods longer than five seconds, is slow drift: the posture creeping over tens of seconds, which grows with how long a recording runs, so leaving it in would make the number depend on the length of the session; it holds between <span data-n="slow_lo"></span> and <span data-n="slow_hi"></span> % of the unfiltered motion. Where exactly to put that lower edge is a convention, not a law: swept from 0.15 to 0.3 Hz the championships agree better the lower it goes, and 0.2 is the value our toolbox and published analyses share. Above 5 Hz there is between <span data-n="fast_lo"></span> and <span data-n="fast_hi"></span> % of the unfiltered motion, depending on the system, and none of it is the person. A faster camera sees more of the jitter, which is part of why the 200 Hz championships came out highest.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-corr.png" alt="Bar chart of head speed per championship after filtering to where a body moves: all between 4.7 and 5.0 millimetres per second, with the unfiltered values as dashed outlines">
+    </div>
+    <p class="ref">Jensenius et al. 2017 · González Sánchez et al. 2018 · González Sánchez et al. 2019 · Zelechowska et al. 2020b · Swarbrick et al. 2025</p>
+    <aside class="notes">And this is the same people after filtering away what is not the body, on the same axis, with the old values as dashed outlines. Every championship lands between <span data-n="cor_lo"></span> and <span data-n="cor_hi"></span> mm/s. The factor of <span data-n="unc_spread"></span> between championships was the cameras. What is left is the person, and it is the same number every year: two different motion-capture systems from different manufacturers, and several hundred people who had never done this before. Tested as equivalence rather than as a failure to find a difference, <span data-n="n38_equiv"></span> of <span data-n="n38_ed"></span> championships lie within <span data-n="bound38"></span> % of the grand median; the exception is <span data-n="fail38"></span>, which lies <span data-n="fail38_pct"></span> % higher. So the defensible claim is not that the number is constant, but that a standing head sits within <span data-n="bound38"></span> % of it in almost every edition. Ten years of different people, different equipment and different music, and nearly the same number (report 38).</aside>
+  </section>
+  <section class="center-slide">
+    <canvas data-anim="accum" data-speed="20" width="1760" height="720" aria-label="The head's path on the left and the distance travelled on the right, which grows almost as a straight line"></canvas>
+    <aside class="notes">Another answer to how much: add it up. The body counts evenly. On the left the head of the same participant draws its path, 20 times faster than real time. On the right the distance the head has travelled grows: <span data-n="head_path_m"></span> metres in <span data-n="head_min"></span> minutes, almost a straight line. It is this even pace that makes standstill usable as a clock. L gives the same sound as when the path was drawn the first time.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-cumall-a.png" alt="Empty axis: distance travelled by the head in metres against minutes">
+      <img class="fragment" src="images/fig-cumall-1.png" alt="">
+      <img class="fragment" src="images/fig-cumall-2.png" alt="">
+      <img class="fragment" src="images/fig-cumall-3.png" alt="">
+      <img class="fragment" src="images/fig-cumall.png" alt="The distance travelled by the head in every optical standstill recording, one thin line each, almost straight, with a thick median line per collection, the three nearly on top of each other">
+    </div>
+    <aside class="notes">And not just for that one person. This is every optical standstill recording we have, <span data-n="ca_n"></span> of them, one thin line each: the distance the head has travelled, filtered to where a body moves. (Click.) The <span data-n="ca_sverm"></span> Sverm sessions, three of us standing still many times. (Click.) The <span data-n="ca_champ"></span> people in the championships. (Click.) The <span data-n="ca_hpsp"></span> sessions of the headphone and loudspeaker study in the lab. (Click.) The thick lines are the medians: <span data-n="ca_slope_sverm"></span>, <span data-n="ca_slope_champ"></span> and <span data-n="ca_slope_hpsp"></span> millimetres a minute. Straight lines, at nearly the same slope, for three people many times and for several hundred strangers once. In ten minutes a standing head travels about <span data-n="ca_m10"></span> metres without going anywhere.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">How big?</p>
+    <aside class="notes">So much for how much. Now how big: how large a space does the standing head use, and what shape is it?</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <div class="pair">
+      <canvas data-anim="range" data-speed="20" width="820" height="820" aria-label="The head's path seen from above, unfiltered, with a dashed circle showing the dispersion radius"></canvas>
+      <div>
+        <p class="huge accent fragment"><span data-n="disp_cm"></span> cm</p>
+        <p class="big fragment"><img class="picto keep" src="images/picto/head.svg" data-dark="images/picto/head-dark.svg" alt="">radius</p>
+      </div>
+    </div>
+    <aside class="notes">A speed says nothing about how large an area the body uses. (Click for the number, click for the word.) This number is the dispersion radius: how far the head is on average (root mean square) from its own centre through the session, a median of <span data-n="disp"></span> millimetres (report 04). The head keeps within a small circle for ten minutes, and that size is as stable between the championships as the speed is. Standstill has both a characteristic speed and a characteristic size. The figure: the dashed circle is the median dispersion radius, and the path is the head of the same participant as before, seen from above, now unfiltered, so the slow drift is included; 20 times faster than real time, and the line at the bottom is one centimetre. This participant stays mostly inside the circle and only just goes outside at the front and back.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div style="display:flex;justify-content:center;align-items:center;gap:40px">
+      <img class="fig" src="images/fig-dir-above.png" alt="Sway seen from above: 752 thin lines, one per recording along its sway axis, bundled front to back, with an ellipse two and a half times as long as it is wide" style="width:860px">
+      <img class="fig fragment" src="images/fig-dir-height.png" alt="The same recordings seen from the side: the lines lie almost flat, front and back about eight times larger than up and down" style="width:860px">
+    </div>
+    <aside class="notes">The last slide showed how large the motion is, a circle of about a centimetre and a half. This one shows its shape, so there is no scale here: the side-to-side width is set to one for everybody. Seen from above, each thin line is one recording, drawn along the axis that person swayed most along, and as long as their sway was stretched. They bundle around one direction: the median sway is <span data-n="anis"></span> times as long along that axis as across it, which is the ellipse. I call that axis front–back. That is the biomechanical reading: the ankles allow front and back, and two feet side by side resist the rest. The recordings do not log which way people faced, only that everyone in a session faced the same way. (Click.) The same recordings seen from the side, on the same scale. The lines lie almost flat: front and back is about eight times larger than up and down, and nine recordings in ten tilt less than twelve degrees. So the motion of a standing head is close to a flat sheet: mostly front and back, some side to side, and little up and down. What there is of vertical motion is mostly slow, the sinking that comes two slides on. The lines are 752 recordings from the six championships and the headphones study, each dataset turned so that its own mean axis is front–back, since the lab frames differ; the whole unfiltered path of each head, as in report 91, whose median over all its 958 recordings is the <span data-n="anis"></span> I quoted.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-sinking-a.png" alt="Empty axis: head height in millimetres against minutes">
+      <img class="fragment" src="images/fig-sinking-b.png" alt="One thin line per participant in six championships: head height through the session, spread around zero">
+      <img class="fragment" src="images/fig-sinking.png" alt="The same with the median as a thick line, which falls a couple of millimetres in five minutes">
+    </div>
+    <aside class="notes">And one more thing that happens to everybody. The axes: the head's height through the session, in millimetres, measured from where each person began. (Click.) One thin line per participant in six championships, several hundred people. Some rise, most do not. (Click.) The thick line is the median: we sink a little. Over <span data-n="n94"></span> participants in <span data-n="sink_ds"></span> data sets the head sinks <span data-n="sink_slope"></span> millimetres per minute, and <span data-n="sink_pct"></span> % of the participants sink; for the middle half it comes to between <span data-n="sink_lo"></span> and <span data-n="sink_hi"></span> millimetres over a session (report 94). It is not the cameras creeping: the reference markers on the stands stay all but still, <span data-n="sink_static"></span> millimetres per minute. The body gives way, a little and evenly, without our noticing.</aside>
+  </section>
+</section>
+
+<!-- ===================== 2 THE BODY ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>The body</h1>
+    <aside class="notes">So much for the head as one number. Now I take the signal apart: first across the body, from head to toes, then across the body's own rhythms, the sway, the breath and the heart. These are also the other signals we record: markers on the whole body, a breathing belt, heart sensors, and a phone on the chest.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1200px">
+      <img src="images/fig-bodyparts-0.png" alt="A stick figure drawn from motion capture markers, seen from the front">
+      <img class="fragment" src="images/fig-bodyparts-1.png" alt="">
+      <img class="fragment" src="images/fig-bodyparts-2.png" alt="">
+      <img class="fragment" src="images/fig-bodyparts-3.png" alt="">
+      <img class="fragment" src="images/fig-bodyparts-4.png" alt="">
+      <img class="fragment" src="images/fig-bodyparts-5.png" alt="A stick figure drawn from motion capture markers, and beside it bars of motion at the height of each body site: head 5.4, shoulders 3.9, hips 2.6, knees 1.5, heels 0.2 and toes 0.1 millimetres per second">
+    </div>
+    <p class="ref">Zelechowska et al. 2020a</p>
+    <aside class="notes">Where on the body is the motion? Here every participant wore markers from head to toe. The figure on the left is one of them, drawn from the markers themselves, seen from the front: the dots are where each marker was during 500 seconds of standing still, and the lines join them into a body. The bars are all 85 sessions in the headphones and loudspeakers study, the median for each site, left and right averaged, each drawn at the height of its site. It builds from the floor up, one click each. (Click.) The toes and the heels hardly move. (Click.) The knees move more, (click) the hips more again, (click) then the shoulders, (click) and the head most of all, about twice as much as the hips. That is what a pendulum turned upside down does: the body pivots about the ankles, and the further from the pivot, the larger the motion. So the head marker we use everywhere is not an arbitrary choice; it is the end of the pendulum, where the sway is largest. It is not a rigid pendulum, though: the joints share the work, with about <span data-n="eff_dof"></span> effective degrees of freedom. Not a tremor, but slow postural sway. The values are report 27's.</aside>
+  </section>
+  <section class="center-slide">
+    <h2>Rhythm</h2>
+    <p class="big fragment">"Repetition with variation"</p>
+    <aside class="notes">What is rhythm? From the book's chapter on the body's rhythms. A simple word that everybody knows and that is hard to define. (Click.) At its core, rhythm builds on repetition, and never quite the same: repetition with variation. A steady pulse, like a metronome, is the simplest rhythm, but most rhythms are more complex. Koukkari and Sothern define a biological rhythm as a change that repeats with a similar pattern (2006), and Anne Danielsen describes musical rhythm as "a changing same" (2010). Both biological and musical rhythms are continuous signals, not points in time; the period is the time one cycle takes. With those glasses on, we now look at the body.</aside>
+  </section>
+  <section class="center-slide">
+    <canvas data-anim="clocks" width="1760" height="800" aria-label="Three scrolling curves from the chest accelerometer: breathing, sway and heartbeat"></canvas>
+    <aside class="notes">The body has many clocks. One minute of the phone on my chest, day <span data-n="clock_day"></span> of 2023, in real time. The signal is split into three bands with the limits from report 32: the breath, the sway and the heartbeat. The height is scaled per line, so it is the rhythm and not the size that shows; the heart is actually the largest, and we will come to that. Three clocks, three tempi, in the same body. But look at them with the definition from the previous slide: only the heartbeat is a rhythm in the strict sense, with a clear peak in the spectrum nearly every day. The breath is there, but gives a clear peak only on about half of the days. And the sway only looks like a wave because the signal is filtered to a narrow band; filter noise and it oscillates. The sway has a time scale, but no period: variation without repetition. Press L and they are heard: the breath as air, a rush in and a rush out, loudest where the curve changes fastest, the sway as a rocking tone, the heart as one thud per beat. The beats are found in the phone signal itself, from the heart's fundamental this minute, and there are <span data-n="clock_beats"></span> in the minute; the pulse watch showed <span data-n="clock_watch"></span>. The dots under the heart curve are the same beats.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers wide" style="margin:0 auto">
+      <img src="images/fig-clocks-0.png" alt="A logarithmic time axis from half a second to ten minutes">
+      <img class="fragment" src="images/fig-clocks-1.png" alt="Heartbeat">
+      <img class="fragment" src="images/fig-clocks-2.png" alt="Weight shifting">
+      <img class="fragment" src="images/fig-clocks-3.png" alt="Breathing">
+      <img class="fragment" src="images/fig-clocks-4.png" alt="The body settles">
+      <img class="fragment" src="images/fig-clocks-5.png" alt="The heart settles">
+      <img class="fragment" src="images/fig-clocks.png" alt="One session, ten minutes">
+    </div>
+    <aside class="notes">From under a second to ten minutes, one clock per click. When we stand still, the body is full of rhythms. (Click.) The heart beats, in my year with a median of <span data-n="hr"></span> beats per minute, under a second per beat. (Click.) The weight shifts back and forth every second or two. (Click.) We breathe about <span data-n="resp"></span> times per minute. Then the slower processes. (Click.) The motion settles after about <span data-n="settle_body"></span> seconds, (click) the heart only after about <span data-n="settle_heart"></span>. (Click.) And the whole session is ten minutes. Within ten minutes lie several time scales, from micro to macro, and each goes its own way.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-content-0.png" alt="Empty axis: share of the motion in per cent">
+      <img class="fragment" src="images/fig-content-1.png" alt="Breathing, vertical: almost nothing">
+      <img class="fragment" src="images/fig-content-2.png" alt="Faster than 5 Hz, above the band">
+      <img class="fragment" src="images/fig-content-3.png" alt="Heartbeat harmonics">
+      <img class="fragment" src="images/fig-content-4.png" alt="Slow drift, below the band">
+      <img class="fragment" src="images/fig-content-5.png" alt="Heartbeat">
+      <img class="fragment" src="images/fig-content-6.png" alt="Weight shifting">
+      <img class="fragment" src="images/fig-content-7.png" alt="The largest part: slow horizontal sway">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0;text-transform:none">N = <span data-n="n02"></span></p>
+    <aside class="notes">Breath, pulse and sway in five millimetres. The millimetres per second split by frequency and direction, over <span data-n="n02"></span> recordings of the head from three optical collections, the championships, Sverm and the headphones and loudspeakers study, from the bottom up, smallest part first and largest last (click for each): the breath vertically, what is faster than 5 Hz, the heartbeat's harmonics, slow drift, the heartbeat, weight shifting and finally slow sway. Most of it is slow sway: the head swings like a pendulum on the ankles. Then weight shifting, then the heartbeat: the heart shows in how the head moves. The green is outside the band we measure in: slow drift below and noise above; the band holds <span data-n="share_band"></span> % of the velocity power. Finally the breath: breath and sway share a frequency band and cannot be separated there, but they can be separated by direction, for the breath lifts the head while the sway swings it, and the vertical part is almost nothing. Measuring stillness, you measure the living body: a breathing body with a beating heart on top of an ankle pendulum. The breath sits in the chest, not in the head, and that is where we go now (report 02).</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">Bodily rhythms?</p>
+    <p class="big fragment" style="margin-top:.6em">a period that recurs</p>
+    <p class="fragment" style="font-size:.8em;color:var(--muted)">a peak in the spectrum, standing above its neighbours</p>
+    <aside class="notes">Are there rhythms in the body when it stands still? To answer that with data I need the definition from before, repetition with variation, in a form a measurement can test. (Click.) Here a rhythm is a period that recurs: the signal comes back to a similar state at a similar interval, with some variation around it. (Click.) Measured, that means a peak in the spectrum, a frequency that holds more of the motion than the frequencies on either side. A slope or a hump at the edge of a band does not count; the peak has to stand up on its own, which is a stricter test than taking the largest value in a band, and it is why some days have no rate. For this room, what this is and is not: it is periodicity, the simplest layer of rhythm. It says nothing about grouping, accent or metre, which is where most of rhythm perception lives, and nothing about whether anyone would hear these bodily periods as rhythmic. So when I say the heart is a rhythm and the sway is not, I mean that one recurs at a period and the other does not.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="photofig">
+      <img class="photo round keep" src="images/ss365-110.png" alt="Round 360-degree image of a man standing still in a room, a phone strapped to his chest" style="width:440px">
+      <div class="layers">
+      <img class="fig keep" src="images/fig-rhythms-0.svg" data-dark="images/fig-rhythms-dark-0.svg" alt="Days with a clear peak in the chest signal, of the days in 2023">
+      <img class="fig keep fragment" src="images/fig-rhythms-1.svg" data-dark="images/fig-rhythms-dark-1.svg" alt="Heartbeat: nearly every day">
+      <img class="fig keep fragment" src="images/fig-rhythms-2.svg" data-dark="images/fig-rhythms-dark-2.svg" alt="Breathing: about half the days">
+      <img class="fig keep fragment" src="images/fig-rhythms-3.svg" data-dark="images/fig-rhythms-dark-3.svg" alt="Sway: no peak">
+    </div>
+    </div>
+    <aside class="notes">With that test, the phone on my chest through the year of daily standstills. (Click.) The heart: yes. The phone on the chest shows a clear peak at the heart's frequency on <span data-n="ry_card_n"></span> of <span data-n="ry_days"></span> days, with a median of <span data-n="hr"></span> beats per minute. (Click.) The breath: on about half the days. Breathing is in the signal every day, but its rate can be read as a peak only on <span data-n="ry_resp_n"></span> days. On the others the breath sits on the shoulder of the much larger, slower sway and does not stand out as a peak of its own, so the rate cannot be located, although the breathing is there (report 32). If someone asks how far the phone can be trusted for breathing: it was checked against a respiration belt on the same body, in the device sessions behind our SMC 2023 paper, where I wore an Equivital belt and a phone at the same place on the chest. Over 41 paired one-minute windows the median error was one breath a minute, with no bias. So where the phone finds a breathing peak, the rate is right; the limit is that it finds one on only about half the days. The heart has no peak on two days, 27 March and 30 August 2023: on both, the largest value in the heart band sits on the edge of the band, so the test refuses to call it a peak, and the breathing has none on those days either. The recordings are there; nothing stands out in them. (Click.) The sway: no. It has a time scale, but no period; it is variation without repetition, and in the championships the head stands almost completely still <span data-n="ry_frozen"></span> % of the time and moves in jerks for the rest. The only rhythm in the strict sense is the heart, with the breath as a weaker second (reports 32, 41 and 51).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="photofig">
+      <img class="photo keep" src="images/deichman-2025-performer.jpg" alt="A performer standing still between bookshelves in the Deichman library, with others behind her" style="max-height:64vh">
+      <div class="layers">
+      <img class="fig keep" src="images/fig-rsa-0.svg" data-dark="images/fig-rsa-dark-0.svg" alt="Breath to pulse: the coupling, of 1">
+      <img class="fig keep fragment" src="images/fig-rsa-1.svg" data-dark="images/fig-rsa-dark-1.svg" alt="Performers with a clear coupling, one figure each">
+      <img class="fig keep fragment" src="images/fig-rsa-2.svg" data-dark="images/fig-rsa-dark-2.svg" alt="Share of the pulse variation that comes from the breath">
+    </div>
+    </div>
+    <p class="kicker" style="margin:.4em 0 0;text-transform:none">Deichman Bjørvika, Oslo · 9 October 2025 · 2.5 hours · N = <span data-n="ry_rsa_n"></span></p>
+    <aside class="notes">The body's two rhythms are not independent. The heart beats a little faster when we breathe in and a little slower when we breathe out. It is in the textbooks, but we had not measured it. During the performance at the Deichman Bjørvika library in Oslo in 2025, pictured here, with the sensors under the clothes, <span data-n="ry_rsa_n"></span> of the performers wore vests with ECG and a breathing belt. The coupling between breath and pulse, measured as coherence, is <span data-n="ry_rsa_coh"></span> of 1 when they stand still. (Click.) <span data-n="ry_rsa_above"></span> of <span data-n="ry_rsa_n"></span> have a clear coupling, above 0.5. (Click.) About <span data-n="ry_rsa_hf"></span> % of the beat-to-beat variation in the pulse comes from the breath; they breathed about <span data-n="ry_rsa_breaths"></span> times per minute. The body's two rhythms are connected from within (report 73).</aside>
+  </section>
+</section>
+
+<!-- ===================== 3 MUSIC ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>Music</h1>
+    <aside class="notes">Now the question this field cares about: does music move a body that is trying to stand still? This is what the Championships of Standstill were made to answer. The answer is yes, a little, and not in the way we first reported.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">Does music make people move?</p>
+    <aside class="notes">So, the question of the championships: when people try as hard as they can to stand still, does music still make them move?</aside>
+  </section>
+  <section data-background-image="images/championship-floor.jpg" data-background-size="cover">
+    <div class="overlay fragment"><p class="kicker" style="margin:0"><span data-n="champ_first"></span>–<span data-n="champ_last"></span> · <span data-n="champ_editions"></span> championships</p><p style="margin:0">Norwegian Championships of Standstill</p></div>
+    <aside class="notes">The floor before a Championship of Standstill in the fourMs Lab, with the positions taped out and the reference markers on stands. (Click for the caption.) The audience stands as still as they can for six to eight minutes, half in silence and half with music, with a marker on the head. <span data-n="champ_editions"></span> editions from <span data-n="champ_first"></span> to <span data-n="champ_last"></span>: six on optical motion capture with <span data-n="n38"></span> participants in the band-limited analysis, and the last on head-worn accelerometers with <span data-n="n_compete"></span> participants; <span data-n="champ_n"></span> participant recordings with a measured quantity of motion in all, counted from the deposited tables. The question every year was whether music makes people move when they try not to.</aside>
+  </section>
+  <section class="center-slide">
+    <table class="cmp" style="font-size:.5em">
+      <thead><tr><th>year</th><th>the question</th><th>the music</th><th>cameras</th></tr></thead>
+      <tbody id="stimtab"></tbody>
+    </table>
+    <aside class="notes">What each championship asked, and with which music, from the deposit's stimulus tables. 2012 asked the plain question with seven excerpts from classical to EDM. 2015 asked about rhythm: meditation music, salsa and EDM. 2017 compared musical cultures: a Norwegian hardanger fiddle tune, EDM and North Indian vocal music. 2018 varied complexity and tempo within dance music, with a drum pattern and a metronome as the simple ends. 2019 crossed tempo with complexity: a drum pattern and a metronome at three tempi each. 2022 asked about groove, with drum rhythms and songs high or low in groove and familiarity. Segments of half a minute to a minute, always with silence between, in a different order for each group. The last column, the camera system and its frame rate, comes back later.</aside>
+  </section>
+  <section class="center-slide">
+    <canvas data-anim="flock" width="1800" height="760" aria-label="The head's path for every participant in the 2022 championship, each in its own cell, the first minute"></canvas>
+    <aside class="notes">One minute, <span data-n="flock_n"></span> people. All <span data-n="flock_n"></span> participants in the <span data-n="head_year"></span> championship, each head seen from above in its own cell, the first minute, in real time, filtered to <span data-n="band"></span> Hz; the line bottom right is 1 cm. (Click for the caption.) After <span data-n="music_on"></span> seconds the music starts, and the lines change colour. See whether you can see a difference. I cannot either, and that is the point of the next slides. Press L and the total speed in the room is heard as a rush; listen for whether it changes when the music starts. A few cells have large excursions: those are people still shifting in the first minute, and they are included as they are.</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig" src="images/fig-programme.png" alt="Spectrograms of three groups' seven-minute sessions in the 2019 championship: dark silences alternating with six bright blocks of sound, the same six rhythms in a different order for each group" style="max-height:66vh">
+    <p class="kicker" style="margin:.4em 0 0;text-transform:none">Three groups · Championship of Standstill 2019</p>
+    <aside class="notes">This is what a session sounds like, drawn as a spectrogram: time along, pitch up, brightness for loudness. Three of the <span data-n="prog_groups"></span> groups of the 2019 championship. Silence, then a rhythm, then silence again, <span data-n="prog_n_music"></span> rhythms in about <span data-n="prog_len"></span> minutes. The same six rhythms for everyone, but in a different order for each group, so that no rhythm always comes first or last, when people are freshest or most tired. Every championship worked like this: music and silence alternating, so that each person is compared with themselves. Note the bright band low down in every block, the bass of the drum sounds; it matters later.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig" src="images/fig-mocapgram.png" alt="Mocapgram: one row per participant in the 2022 championship, time along; the colour is the head's position, red for side to side, green for front and back and blue for up and down; mostly drifting bands of green and magenta" style="max-height:70vh">
+    <p class="ref">Swarbrick et al. 2025</p>
+    <aside class="notes">Here is what that looks like in the bodies, for the 2022 championship. A mocapgram, like a motiongram, but from motion capture: each row is one of the <span data-n="gram_n"></span> participants, and time runs along through the whole session, one second per column. The colour is where the head is, not how fast it moves: the three directions are mixed as red, green and blue. Red is side to side, green is front and back, blue is up and down, all on one scale of about two centimetres either way, and grey is the head resting at its own centre. So a row that turns greener is a person leaning slowly one way, and a row that turns towards magenta is leaning the other way. The first thing you see is that the picture is green and magenta: most of the motion is front and back, as the ellipse showed. There is little blue, so little up and down, and what there is comes slowly, the sinking. The second is that the colours drift in long bands, not flicker: a standing body wanders slowly about its centre. The third is that there are no vertical stripes. People stood in <span data-n="gram_groups"></span> groups with music on and off, but no event cuts through the whole room at once. Each body keeps its own time. The rows are sorted by how much each person moved, the stillest at the top. A few rows have white gaps: there the marker jumped in the recording, and the stretch is left blank.</aside>
+  </section>
+  <section class="center-slide">
+    <table class="cmp" style="font-size:.5em">
+      <thead><tr><th>year</th><th>the question</th><th>the music</th><th>what we reported</th><th>music against silence, as measured then</th></tr></thead>
+      <tbody id="pubtaba"></tbody>
+    </table>
+    <aside class="notes">One championship per click. What we reported, year by year, and the size of the music effect on the measure we used then: how far the head marker travels per second, unfiltered. Increases of up to eight per cent, and in the papers, effects of the kind of music: complexity in 2018, tempo in 2019. 2015 was recorded but not analysed at the time, and 2022 used a newer pipeline. The next slide shows one of these results in full.</aside>
+  </section>
+  <section class="center-slide">
+    <h2>Most motion at 120 BPM?</h2>
+    <img class="fig" src="images/fig-vib-claim.png" alt="Bar chart of what we published for 2019: people moved more than in silence during all six rhythms, most during the two at 120 beats per minute, 21 per cent for the drum pattern" style="max-height:62vh">
+    <p class="ref">Zelechowska et al. 2020b</p>
+    <aside class="notes">The 2019 result as we published it. A drum pattern and a metronome, each at 90, 120 and 140 beats per minute, <span data-n="snd_n"></span> people. More motion than in silence for every rhythm, and most at 120 beats per minute, about twenty per cent more for the drum pattern. It fitted the idea that we are tuned to about two beats a second, and I told it in many talks. When I went back to it this autumn, the first thing I did was run the original code on the original recordings, and it gives this chart to <span data-n="snd_paper_diff"></span> mm/s. So the effect is in the data. The question is what it is.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:84%;max-width:84%">
+      <img class="fig" src="images/fig-sound-2.png" alt="The 2018 championship, recorded at 200 frames a second: heads and stands both show a spike near 50 hertz during the metronome, at the frequency of its tone, and nothing changes where a body moves">
+      <img class="fig fragment" src="images/fig-sound-0.png" alt="The 2019 championship, recorded at 120 frames a second: the head markers in silence and during the drum pattern at 120 beats per minute coincide where a body moves and differ in a narrow spike at 43 hertz">
+      <img class="fig fragment" src="images/fig-sound-1.png" alt="The same for the tripod: the same spike at the same frequency">
+    </div>
+    <p class="ref">Zelechowska et al. 2020b · González Sánchez et al. 2019</p>
+    <aside class="notes">Here is what that effect is. First 2018, recorded at 200 frames a second. The plot shows how much the markers move at each frequency, slow on the left, fast on the right; grey is silence, purple is the metronome at 120 beats per minute. In the shaded part, where a body sways, breathes and beats, the curves lie on top of each other. All of the difference is in a spike far to the right, near <span data-n="s18_peak_person"></span> Hz in the heads and <span data-n="s18_peak_static"></span> Hz in the markers on stands, which cannot hear. The metronome sound has a strong low tone at <span data-n="s18_tone"></span> Hz. Played loud through loudspeakers, it shakes the room and everything in it by some hundredths of a millimetre, the markers included, and the cameras see it at its own frequency. A camera can follow a vibration up to half its frame rate, 100 Hz here, the dotted line. (Click.) Now 2019, recorded at 120 frames a second, so the limit is 60 Hz and everything beyond, shaded, is invisible to it. The drum pattern at 120 has a tone at <span data-n="snd_tone_hz"></span> Hz, above that limit, so it folds down and shows up at <span data-n="snd_seen_hz"></span> Hz, like a wagon wheel turning slowly on film. That is aliasing. Again nothing changes where a body moves, <span data-n="snd_power_body"></span> %, and above 20 Hz the motion rises by about <span data-n="snd_power_fast"></span> %. (Click.) And the tripod has the same spike at the same place. The metronome at 120 has its tone at <span data-n="snd_m120_tone_hz"></span> Hz, and its spike is at <span data-n="snd_m120_seen_hz"></span>. Why did the drum pattern at 120 move the markers more than the metronome at the same tempo? Because of how much of that tone each file has: <span data-n="why_d_db"></span> dB against <span data-n="why_m_db"></span> dB between 74 and 82 Hz, <span data-n="why_db"></span> dB more, about <span data-n="why_pow"></span> times the power, and the markers' rise above 20 Hz is about <span data-n="why_ratio"></span> times larger for the drums. It is the sound files, not the rhythm. So a faster camera does not remove the problem; it only shows the tremble at its true frequency instead of a false one. What removes it is the filter. Our measure was the distance a marker travels per second, unfiltered, and a marker trembling dozens of times a second travels far without going anywhere. We did see the artefact at the time and subtracted the tripod from each person, but the two tremble out of step, and about <span data-n="snd_left_pct"></span> % of it survived. Filtered to where a body moves: 120 against the other tempi <span data-n="snd_120"></span> points (p = <span data-n="snd_120_p"></span>), <span data-n="snd_n"></span> people; 2018, dance music against metronome <span data-n="snd_edm"></span> points (p = <span data-n="snd_edm_p"></span>). Three lessons: put a marker on something that cannot hear; look at which frequencies an effect lives at; keep the code and the data. Details: reports 120 to 123 in the Oslo Standstill Database material, checked by an independent recomputation.</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig" src="images/fig-noisefloor.png" alt="Bar chart on a log scale: heads at about 5 millimetres per second in every championship, markers on stands between 0.05 and 0.16, for two camera systems at three frame rates" style="max-height:62vh">
+    <p class="ref">Jensenius et al. 2012 · Bishop et al. 2020</p>
+    <aside class="notes">Do we measure a signal at all? This is the answer in one picture, on a log scale. In the band where a body moves, the heads move at about five millimetres a second in every championship. The markers on stands, which do not move, read between <span data-n="nf_lo"></span> and <span data-n="nf_hi"></span>: that is the noise floor of the cameras in that band, <span data-n="nf_ratio_lo"></span> to <span data-n="nf_ratio_hi"></span> times below the heads. Two systems from two manufacturers, Qualisys at 100 and 200 frames a second and OptiTrack at 120, and both are far below the body: median <span data-n="nf_q"></span> for Qualisys and <span data-n="nf_o"></span> for OptiTrack here. That matches our noise-level studies of the two systems in the lab, the first in 2012 and the comparison with the newer OptiTrack in 2020. So within the band, what we measure is the person. Outside it, as the last slides showed, it need not be.</aside>
+  </section>
+  <section class="center-slide">
+    <table class="cmp" style="font-size:.52em">
+      <thead><tr><th>year</th><th>what we reported</th><th>people, unfiltered</th><th>stands, unfiltered</th><th>people, 0.2–5 Hz</th></tr></thead>
+      <tbody id="pubtab"></tbody>
+    </table>
+    <aside class="notes">Back to the table of what we reported, now with the corrections. (Click.) The markers on stands, on the same unfiltered measure. (Click.) The people, filtered to where a body moves, with windows of equal length. Read the 2018 and 2019 rows: the people rose by several per cent on the old measure, and the stands, which cannot hear, rose by seventy. Filtered, the people's rise is small and not significant in either year. 2017 is the one year with a clear effect of its own in the band, and its stands did not move. 2012 can be compared too, though all its silence came before all its music, which is why it stays out of the pooled figure. Pooled, the answer is the next slide.</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig" src="images/fig-lift-people.png" alt="Each person's change in head speed from silence to music, one dot per person, per championship and pooled: the dots spread from about minus 20 to plus 20 per cent around a median just above zero" style="max-height:66vh">
+    <aside class="notes">The <span data-n="lift_med"></span> % is not a mean of a few people; it is <span data-n="lift_n"></span> people, each compared with themselves. Every dot is one person: how much faster their head moved during music than during silence, in the band where a body moves, over windows of equal length. The large dot is the median and the bar its 95 % interval from resampling. The spread is wide, from about minus twenty to plus twenty per cent: most of the variation is between moments, not between conditions. Pooled, the median is <span data-n="lift_med"></span> % (95 % interval <span data-n="lift_lo"></span> to <span data-n="lift_hi"></span>), <span data-n="lift_up"></span> % of people move more with music, Wilcoxon p = <span data-n="lift_p"></span>, and the effect holds in a mixed model with groups and editions as random effects (report 9). Only 2017 is significant on its own. 2012 is shown too, at the top; all its silence came before all its music, so it stays out of the pooled row. So: real, consistent in direction, and small, about a tenth of what we used to report.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">Directionality?</p>
+    <aside class="notes">Is the little that music adds the same in every direction, or does it go one way?</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig" src="images/fig-music-direction-people.png" alt="Change under music by frequency band and direction, people: the vertical bars are the tallest, 3.1 per cent at 0.2 to 0.5 Hz falling to 0.9 at 2 to 5 Hz" style="height:62vh">
+    <aside class="notes">How much more people move under music, split by frequency band and direction. In the band where bodies sway, the response is vertical, largest at the lowest octaves: <span data-n="vert_low"></span> % at 0.2 to 0.5 Hz and <span data-n="vert_sway"></span> % at 0.5 to 1 Hz, where the body shifts its weight. A vertical response at sway frequencies reads as posture, a slight bounce or knee flex, rather than as the body locking to the beat: rescaled by each track's tempo, there is no concentration at the beat, p = <span data-n="beat_p"></span>. Found after the fact in one octave of eleven, so it wants replication rather than a headline. If someone asks whether it is the loudspeakers shaking the room: the reference markers on stands do not rise at those frequencies under music, and vibration could only add; the people and the stands agree only above 5 Hz, which is outside the band (report 10).</aside>
+  </section>
+  <section class="center-slide">
+    <h2>Why vertical?</h2>
+    <img class="photo" src="images/ss365-wide.jpg" alt="A pair of shoes on a cork floor, seen from above" style="max-height:46vh">
+    <p class="big fragment" style="font-size:1.1em">Bass, the vestibular system, or a knee that wants to bounce?</p>
+    <p class="ref">Cameron et al. 2022</p>
+    <aside class="notes">The question I would put to this room. The one consistent trace music leaves on a body trying to be still is small, at sway frequencies, and vertical. (Click.) Is that low-frequency sound reaching the vestibular system? Is it the start of the bounce dancers do, held back? The LIVELab's very-low-frequency study found more dancing with bass that the audience could not consciously hear (Cameron and colleagues, Current Biology, 2022). A standing audience with and without sub-bass, with a marker on a stand as a control and the analysis restricted to the band where a body moves, would test it; the drum in the markers a few slides back is why both are needed. I would be glad to collaborate. If asked whether sway follows the direction a sound comes from: not in the year of daily standstills. The sway axis is fixed to the body, not to the room, and an earlier published claim of a link did not survive a corrected ambisonic decode (report 08).</aside>
+  </section>
+  <section class="center-slide">
+    <p class="huge accent">Musical features?</p>
+    <aside class="notes">If the kind of music made no difference in any single championship, perhaps something in the sound does: tempo, how clear the pulse is, how dense the onsets, how loud, how bright.</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-features-0.png" alt="Axis: median rank correlation with motion, from −0.3 to 0.3">
+      <img class="fragment" src="images/fig-features-1.png" alt="Tempo">
+      <img class="fragment" src="images/fig-features-2.png" alt="Pulse clarity">
+      <img class="fragment" src="images/fig-features-3.png" alt="Onsets per second">
+      <img class="fragment" src="images/fig-features-4.png" alt="Level">
+      <img class="fragment" src="images/fig-features-5.png" alt="Spectral centroid: all five bars are close to zero">
+    </div>
+    <p class="ref">González Sánchez et al. 2018 · Zelechowska et al. 2020b</p>
+    <aside class="notes">Does any feature of the music predict how much people move? Within each person, does motion follow tempo, pulse clarity, onset density, level or spectral centroid across tracks? One feature per click, five clicks. <span data-n="feat_n"></span> participants, <span data-n="feat_tracks"></span> tracks. Tempo: median rank correlation <span data-n="tempo_rho"></span>, p = <span data-n="tempo_p"></span>. The axis is stretched: these are correlations of three hundredths at most, and the small scale on the right shows how little of the range from minus one to plus one that is. Four of the five are nowhere near significance. Spectral centroid reaches p = 0.04 on its own, but it is one test of five and does not survive correction, and 0.03 is too small to matter in any case. So nothing survives. A caution for anyone repeating this: the reference markers on stands, on the same test, do follow onsets per second (<span data-n="static_onsets_rho"></span>, p = <span data-n="static_onsets_p"></span>), so a feature can seem to act on a body when it is acting on the apparatus. Earlier papers reported pulse-clarity and complexity effects in single editions; pooled and controlled, they do not hold (report 12).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1650px">
+      <img class="fig keep" src="images/fig-musicsum-0.svg" data-dark="images/fig-musicsum-dark-0.svg" alt="Axis: change with music in per cent of silence">
+      <img class="fig keep fragment" src="images/fig-musicsum-1.svg" data-dark="images/fig-musicsum-dark-1.svg" alt="People, all directions">
+      <img class="fig keep fragment" src="images/fig-musicsum-2.svg" data-dark="images/fig-musicsum-dark-2.svg" alt="People, vertical, 0.2 to 0.5 Hz">
+      <img class="fig keep fragment" src="images/fig-musicsum-3.svg" data-dark="images/fig-musicsum-dark-3.svg" alt="People, vertical, 0.5 to 1 Hz">
+      <img class="fig keep fragment" src="images/fig-musicsum-4.svg" data-dark="images/fig-musicsum-dark-4.svg" alt="People in 2022 who moved more with music, one dot each">
+      <img class="fig keep fragment" src="images/fig-musicsum-5.svg" data-dark="images/fig-musicsum-dark-5.svg" alt="Tracks that made people stiller than their own silence">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0">Norwegian Championships of Standstill</p>
+    <aside class="notes">What the championships say about music, together, one row per click. Over five championships and <span data-n="lift_n"></span> recordings, people move <span data-n="lift"></span> % more with music than in silence (p = <span data-n="lift_p"></span>). Across the five championships, <span data-n="lift_up"></span> % of the <span data-n="lift_n"></span> people moved more with music than in their own silence; by chance it would be half. The little that music adds is vertical: <span data-n="vert_low"></span> % at 0.2 to 0.5 Hz and <span data-n="vert_sway"></span> % at 0.5 to 1 Hz, where the body shifts its weight; a slight springing in the knees more than the body following the beat. If someone asks whether that is the loudspeakers shaking the room: the reference markers on stands do not rise at those frequencies under music, and vibration could only add (report 10). And the opposite question, whether there is music that stills you: of <span data-n="n_tracks11"></span> pieces of music, <span data-n="n_still11"></span> make people stand stiller than in their own silence after correction. The lowest single track, a slow Ligeti movement, comes out at <span data-n="still_lo"></span> % before correction. There was also an apparent anticipation effect, motion falling in the seconds before the music stops, which looked like the first psychological effect in the material; it turned out to follow the fade-outs of the excerpts, since the sound was already getting quieter. This connects to the "stilling response" in concert audiences that colleagues have described. All this is many people, once each, in a hall. The next slides are the opposite: few people in a lab (reports 09, 10 and 11).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="photo" src="images/hpsp-lab.jpg" alt="A participant seen from behind, standing on a balance board with headphones on in the motion capture lab, surrounded by cameras and loudspeakers on stands" style="height:48vh;max-height:none;width:auto">
+    <div class="layers" style="width:1400px;margin:.5em auto 0">
+      <img class="fig keep" src="images/fig-hpsp-0.svg" data-dark="images/fig-hpsp-dark-0.svg" alt="">
+      <img class="fig keep fragment" src="images/fig-hpsp-1.svg" data-dark="images/fig-hpsp-dark-1.svg" alt="Motion, headphones against loudspeakers">
+      <img class="fig keep fragment" src="images/fig-hpsp-2.svg" data-dark="images/fig-hpsp-dark-2.svg" alt="Feet and head sway together">
+    </div>
+    <p class="ref">Zelechowska et al. 2020a · Zelechowska 2020 (thesis)</p>
+    <aside class="notes">From the hall to the lab. In 2018 Agata Zelechowska ran a controlled experiment in the fourMs Lab: <span data-n="hp_n"></span> people heard the same music twice, once over headphones and once from loudspeakers, with motion capture, a balance board under the feet, which you can see in the picture, and a breathing belt around the chest. Participants were not told to stand still, only to stand and listen, which makes it a useful contrast to the championships. (Click.) How the sound arrived made no difference to the motion: <span data-n="hp_move"></span> %, p = <span data-n="hp_move_p"></span>, over <span data-n="hp_move_n"></span> people. (Click.) And the balance board under the feet and the markers on the head agree: those who sway far with their feet sway far with their head, r = <span data-n="hp_feet"></span> over <span data-n="hp_feet_n"></span> people. The photograph is Figure 4.8 of Agata Zelechowska's doctoral thesis (University of Oslo, 2020). The breath comes on the next slide (reports 29 and 83).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="photo" src="images/hpsp-belt-worn.jpg" alt="A participant fastening a breathing belt around the chest in the lab" style="height:48vh;max-height:none;width:auto">
+    <div class="layers" style="width:1400px;margin:.5em auto 0">
+      <img class="fig keep" src="images/fig-hpspb-0.svg" data-dark="images/fig-hpspb-dark-0.svg" alt="">
+      <img class="fig keep fragment" src="images/fig-hpspb-1.svg" data-dark="images/fig-hpspb-dark-1.svg" alt="Breathing rate with music">
+      <img class="fig keep fragment" src="images/fig-hpspb-2.svg" data-dark="images/fig-hpspb-dark-2.svg" alt="Breathing rate, headphones against loudspeakers">
+    </div>
+    <p class="ref">Zelechowska et al. 2020a</p>
+    <aside class="notes">The same experiment, now the breath, from the belt being fastened in the picture. (Click.) The music changed the breath: <span data-n="hp_breath_up"></span> breaths per minute when the blocks are equally long, over <span data-n="hp_breath_n"></span> people (p = <span data-n="hp_breath_p"></span>). (Click.) But the breath did not care about headphones or loudspeakers: <span data-n="hp_dev_hp"></span> against <span data-n="hp_dev_sp"></span> (p = <span data-n="hp_dev_p"></span>). From the hall to the lab: music does little to how much the body moves, a little more to how it breathes, and how the music is played back does nothing (report 24).</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <h2>The breath changes more than the body</h2>
+    <div class="layers" style="width:1500px">
+      <img class="fig" src="images/breath-music-vs-silence.png" alt="Breathing rate in silence and music, one line per participant" style="clip-path:inset(0 66.7% 0 0)">
+      <img class="fig fragment" src="images/breath-music-vs-silence.png" alt="Breath amplitude" style="clip-path:inset(0 33.3% 0 33.3%)">
+      <img class="fig fragment" src="images/breath-music-vs-silence.png" alt="Deep breaths" style="clip-path:inset(0 0 0 66.7%)">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/headphones.svg" data-dark="images/picto/headphones-dark.svg" alt="">2018 · Headphones or loudspeakers · the breathing belt</p>
+    <aside class="notes">The same study, the breathing belt in detail, <span data-n="breath_n"></span> participants with usable amplitude. Under music the breathing rate rises by <span data-n="breath_rate"></span> breaths per minute in equal windows, p = <span data-n="breath_p"></span>; (click) the amplitude does not change, (click) and the deep breaths become fewer. If music reaches the standing body anywhere, the breath is where it is clearest (report 24).</aside>
+  </section>
+  <section class="center-slide">
+    <h2>Music also stills</h2>
+    <div style="display:flex;gap:1em;align-items:center;justify-content:center">
+      <img class="photo" src="images/ml-copenhagen-phones.jpg" style="width:26%;margin:0" alt="Audience members at MusicLab Copenhagen with phones in pouches on their chests">
+      <img class="fig fragment" src="images/fig-stilling.png" style="width:70%;margin:0" alt="The median motion of a concert audience through an evening: lowest during the music, several times higher in the applause, in between during speech">
+    </div>
+    <p class="ref">Upham et al. 2024</p>
+    <aside class="notes">One more thing before the beat, so that the story is not only about music moving people. Music also stills them. The photograph is MusicLab Copenhagen in October 2021: a research concert with the Danish String Quartet in a concert hall, where the audience wore phones in pouches on their chests, which measured their motion through the evening. (Click.) This is the audience at MusicLab Copenhagen, <span data-n="stl_n"></span> people with a phone on the chest, listening to the Danish String Quartet: their median motion through the evening. Purple is music, green applause, grey speech and questionnaires. The hall is stillest when the music plays; in the applause the same people move about <span data-n="stl_applause_x"></span> times as much. And inside the music Finn Upham and colleagues found <span data-n="stl_pts"></span> stilling points in <span data-n="stl_min"></span> minutes: moments such as a rest, a held note or a change of texture where the audience becomes stiller together, often just before the music does. They call it the stilling response. So there are two things music can do to a body, and they pull in opposite directions: a little more motion in people told to stand still, and less motion in people who are absorbed. Stillness in a concert is engagement, not absence. A seated audience and a standing championship are different tasks, which is the next part of the talk.</aside>
+  </section>
+</section>
+
+<!-- ===================== 4 THE BEAT ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>The beat</h1>
+    <aside class="notes">One claim for this part: music changes how much a still body moves, but not when. Four steps. One: a beat is not a point. Seen from the motion, a drumstick, or from the sound, an onset, it is a window with a shape, so following the beat cannot be tested as hitting points in time (the two slides marked more show this; skip them if short of time). Two: so we test it as rhythm. If the body followed the beat, its motion would pile up at the frequency of the beat. It does not. Three: the null is a strong one. Any correlation above about 0.11 would have shown, and the evidence favours no entrainment by about twenty to one. Four, the point of it, which the next part shows: the same kind of music in the same room does entrain people who are free to dance. So entrainment is not automatic. A body asked to stand still holds it back, and that is why the instruction matters more than the music.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1500px;margin:0 auto">
+      <img src="images/fig-onset-0.png" alt="The height of a drumstick: lift, fall, impact and bounce, one continuous curve">
+      <img class="fragment" src="images/fig-onset-1.png" alt="The sound wave, which only begins at the impact">
+      <img class="fragment" src="images/fig-onset-2.png" alt="The impact">
+      <img class="fragment" src="images/fig-onset-3.png" alt="Where we hear it, a little after the impact">
+    </div>
+    <p class="ref">Jensenius 2022</p>
+    <aside class="notes">Before we ask whether the body follows the beat of the music, a question about the beat itself: when does a sound happen? First from the side of motion. At the top, the height of a drumstick in one stroke. The motion is continuous: the stick is lifted, falls, hits and bounces back, and there is no point where the stroke begins. In Sound Actions I call it prefix, excitation and suffix. (Click.) At the bottom the sound. It does not exist before the stick hits, and then it has its own shape: a fast rise and a slow decay. The sound wave is drawn at a much lower frequency than a drum, so the oscillations show. (Click.) The impact is the only place where the motion and the sound meet, and it is a kink in the motion, not a start. (Click.) And where we hear the stroke lies a little after the impact, inside the shape of the sound. A stroke is three things in three places: a motion that began long before, an impact, and a heard moment. When we ask whether a body standing still follows the music, it is this complexity we are asking into, on both sides. The figure is schematic, not measured.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1500px;margin:0 auto">
+      <img src="images/fig-pcentre-0.png" alt="The sound envelope of one onset">
+      <img class="fragment" src="images/fig-pcentre-1.png" alt="Physical onset">
+      <img class="fragment" src="images/fig-pcentre-2.png" alt="Energy peak">
+      <img class="fragment" src="images/fig-pcentre-3.png" alt="Where we hear the sound: the P-centre, between onset and peak">
+    </div>
+    <p class="ref">Danielsen et al. 2019</p>
+    <aside class="notes">The same question from the side of the sound. Here is one onset, drawn as loudness over time. (Click.) In the signal the sound starts here, the physical onset. (Click.) Here it is loudest, the energy peak. (Click.) But we hear it somewhere in between, in what is called the P-centre, the perceptual centre. Where it lies depends on the sound: a slow attack is heard later and less precisely than a fast one, and a long sound later than a short one (Danielsen and colleagues 2019). Anne Danielsen therefore calls the beat a window, a "beat bin", and not a point. What we experience as a moment is not a point but a shape. The same goes for the body: sway has no onset, and even a heartbeat is a pressure wave that rises and falls. When we ask whether the body follows the music, we compare two shapes, not two series of points. The figure is schematic, after Nymoen, Danielsen and London (2017). This is a room that knows this literature better than I do.</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig fragment" src="images/fig-metre.png" alt="Peak in head motion at the bar, half bar, beat and half beat, music against silence, for four championships: all near zero except one, the 2022 songs at the bar level" style="max-height:64vh">
+    <p class="kicker" style="margin:.4em 0 0;text-transform:none">Championships 2017, 2018, 2019, 2022 · N = <span data-n="mt_people"></span></p>
+    <aside class="notes">Does the body follow the music at any level of the metre? Four championships played music with a known tempo, from <span data-n="mt_tempo_lo"></span> to <span data-n="mt_tempo_hi"></span> beats per minute: a fiddle tune, dance music and vocal music in 2017, dance tracks in 2018, drum patterns and metronomes in 2019, songs in 2022. If a body followed the music, its motion would gain a peak at the rate of the bar, the half bar, the beat or the half beat. (Click.) For each person and each piece I measure how much the motion at that rate stands above its neighbouring frequencies, during the music and at the same rate in the person's own silence, and plot the difference: zero means no peak. <span data-n="mt_people"></span> people, <span data-n="mt_segments"></span> pieces of music heard. Of <span data-n="mt_tests"></span> tests, <span data-n="mt_up"></span> comes out above zero: <span data-n="mt_sig"></span>, the songs at the level of the bar, about half a hertz. One in sixteen is roughly what chance gives, and 2017 goes the other way at the same level, so I read it as a question rather than a finding: the songs had the strongest metre and the most groove, and a slow sway with the bar is what a body that wants to dance but must not might do. The beat itself shows nothing anywhere. So the little that music adds is not entrainment to the beat; whether there is something at the bar level in groove music is worth a proper test. (Method: corpus-band position, 20-second spectra summed over the three axes, peak height against the bins two to four steps either side, in log units, music minus the person's silence; tools/make_metre.py in the deck folder, extending report 46.)</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px">
+      <img class="fig keep" src="images/fig-entrain-0.svg" data-dark="images/fig-entrain-dark-0.svg" alt="Rhythms outside the body, and whether the body follows them">
+      <img class="fig keep fragment" src="images/fig-entrain-1.svg" data-dark="images/fig-entrain-dark-1.svg" alt="The beat of the music: no">
+      <img class="fig keep fragment" src="images/fig-entrain-2.svg" data-dark="images/fig-entrain-dark-2.svg" alt="Other people's breathing: no, as by chance">
+      <img class="fig keep fragment" src="images/fig-entrain-3.svg" data-dark="images/fig-entrain-dark-3.svg" alt="Other people's heartbeats: no, as by chance">
+      <img class="fig keep fragment" src="images/fig-entrain-4.svg" data-dark="images/fig-entrain-dark-4.svg" alt="The rhythm of the week: the sound has one, the body does not">
+      <img class="fig keep fragment" src="images/fig-entrain-5.svg" data-dark="images/fig-entrain-dark-5.svg" alt="The rhythm of the year: the light has one, the body does not">
+    </div>
+    <aside class="notes">This is the entrainment question: does the body lock its own rhythms to a rhythm outside it, so that the outside pulse becomes the body's pulse? Then the rhythms outside the body, one per click. The beat of the music: the body does not follow it, in <span data-n="ei_up"></span> of <span data-n="ei_stim"></span> rhythms (2019 championship). Other people's breathing: when <span data-n="ry_people74"></span> people stand still together in the library, their breathing is not in phase, <span data-n="ry_plv_resp"></span> against <span data-n="ry_plv_resp_null"></span> by chance, and the deep breaths do not coincide more often than chance (<span data-n="ry_sigh"></span> times). Other people's heartbeats: <span data-n="ry_plv_card"></span> against <span data-n="ry_plv_card_null"></span>. It feels like breathing together; it is not. The rhythm of the week: the sound in the rooms has a week, brightest on <span data-n="week_peak"></span> (r = <span data-n="ry_week_sound"></span>), but my body has none (r = <span data-n="ry_week_body"></span>, not significant). The rhythm of the year: the light follows the seasons (r = <span data-n="ry_year_light"></span>), the body does not (r = <span data-n="ry_year_body"></span>, not significant). The body's rhythms are connected with each other, but not with anything outside: the only pulse in the body is its own. A later part takes the people standing together further (reports 34, 46 and 74).</aside>
+  </section>
+</section>
+
+<!-- ===================== 5 THE URGE TO MOVE ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>The urge to move</h1>
+    <aside class="notes">What does all this say about the urge to move to music? First people who are free to move, dancing; then the same music on people standing still. Music adds a little; the task decides far more.</aside>
+  </section>
+  <section class="center-slide">
+    <canvas data-anim="dancecurve" data-speed="12" width="1700" height="760" aria-label="Median head speed of two dance groups over a ten-minute dance music mix, drawn behind a moving playhead, with breakdowns and build-ups shaded and the music level below"></canvas>
+    <p class="ref">Solberg & Jensenius 2017 · Solberg 2018 (thesis)</p>
+    <aside class="notes">Start with people who are free to move. Three groups danced to a ten-minute DJ mix in the fourMs Lab in August 2015, one head marker each; this is Ragnhild Solberg's dance study. The curve is the median head speed of two groups that heard the same mix, second by second, with the music level underneath and the breakdowns and build-ups shaded. Watch the two curves as the mix plays: the dancers hold a steady level, fall as soon as the breakdown starts, stay low through the build-up and jump at the drop. Both groups do the same at the same moments, so this is the music's form showing in their bodies. In the published comparison, with the paper's measure over all three groups, heads moved <span data-n="seg_pre"></span> mm/s before the break, <span data-n="seg_bd"></span> in the breakdown, about <span data-n="seg_bd_pre_pct"></span> % less, and <span data-n="seg_post"></span> after the drop, <span data-n="seg_post_bd_x"></span> times the breakdown (Solberg and Jensenius, Musicae Scientiae, published online 2017, in print 2019). The curve itself is redrawn with the band-limited measure, so its values are lower than the paper's. Free to move, people follow the large-scale form of the music. Group B is not in this plot because it heard the second mix, the same tracks in another order, so it has another clock; it is on the next slide. Hold on to the shape of these curves: the same music comes back in a moment, on people standing still.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <canvas data-anim="floors" data-speed="12" width="1800" height="520" aria-label="Three dance floors seen from above, side by side: each dancer's head as a dot with a short trail, playing through the ten-minute mix"></canvas>
+    <p class="ref">Solberg & Jensenius 2017</p>
+    <aside class="notes">The same ten minutes from above, each dancer's head as a dot, and the path it has travelled stays on the floor as it goes. One group roamed the floor, one danced in a ring facing each other, and one formed a looser ring with one dancer apart. Three different social arrangements, and still the same response to the breaks. The three groups play at the same time, about twelve times faster than real time, so the whole mix takes under a minute. Group B heard the second mix, with the same tracks in another order, so its clock is its own mix's time.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1560px;margin:0 auto">
+      <img src="images/fig-drop-0.png" alt="One minute of electronic dance music: groove, breakdown, build-up and the drop at 49 seconds">
+      <img class="fragment" src="images/fig-drop-1.png" alt="Dancers: head speed falls to about half in the breakdown and jumps at the drop">
+      <img class="fragment" src="images/fig-drop-2.png" alt="People standing still to the same minute: a flat line at 100 per cent">
+    </div>
+    <p class="ref">Solberg & Jensenius 2017 · González Sánchez et al. 2018</p>
+    <aside class="notes">And here is why I showed you the dancers. Two years after the dance study, the 2017 Championship of Standstill played one minute of electronic dance music, and that minute was cut from the same mix: the break routine of the same track. So the same passage, in the same room, with the same marker on the head, was heard by people free to dance and by people trying to stand still. One instruction changed. The minute first: groove, breakdown, build-up, and the drop after 49 seconds. Before I click: what do you think the standing people do at the drop? (Click.) The dancers, <span data-n="drop_n_dancers"></span> of them, each curve as a percentage of its own level before the break: the breakdown cuts their motion by <span data-n="drop_dance_bd_pct"></span> %, and the drop brings it back to <span data-n="drop_dance_drop_x"></span> times the breakdown level. (Click.) The <span data-n="drop_n_edm"></span> people standing still: <span data-n="drop_edm_pre"></span>, <span data-n="drop_edm_breakdown"></span>, <span data-n="drop_edm_buildup"></span> and <span data-n="drop_edm_postdrop"></span> mm/s in the four parts. The drop against the breakdown is <span data-n="drop_edm_drop_pct"></span> %, p = <span data-n="drop_edm_drop_p"></span>, and the sample could have shown a change of <span data-n="drop_edm_drop_mde_pct"></span> %. The music does reach them: the minute as a whole lifts their motion <span data-n="drop_edm_minute_vs_silence_pct"></span> % over silence. But the structure that organises a dance floor is, for a body told to stand still, not there (report 113, not yet published).</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px"><img src="images/fig-scale-1.png" alt="Head speed on a log axis: dancing to electronic dance music"><img class="fragment" src="images/fig-scale-2.png" alt="Adds standing without the instruction, far below the dancers"><img class="fragment" src="images/fig-scale-3.png" alt="Adds told to stand still, only a little less again"></div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/camera.svg" data-dark="images/picto/camera-dark.svg" alt="">Championships · <img class="picto keep" src="images/picto/headphones.svg" data-dark="images/picto/headphones-dark.svg" alt="">headphones or loudspeakers · Solberg 2015 dance study</p>
+    <aside class="notes">So the task decides. The same measure for three tasks: median head speed from an optical marker, <span data-n="band"></span> Hz, on a log axis, built from the bottom. Dancing to electronic dance music in the lab, in Ragnhild Solberg's 2015 dance study, the people you just saw: <span data-n="dance"></span> mm/s. (Click.) Standing and listening in the same lab, in the 2018 headphones and loudspeakers study, never told to be still: <span data-n="free"></span> mm/s. (Click.) Told to stand still at the championships: <span data-n="still"></span> mm/s over <span data-n="still_n"></span> recordings. So the dancers move about <span data-n="dance_x"></span> times as much as the people standing still, while people who are merely standing and listening move only <span data-n="free_ratio"></span> times as much. Whatever music does to a body, the task the body has been given decides the order of magnitude (reports 59 and 109).</aside>
+  </section>
+</section>
+
+<!-- ===================== 6 INDIVIDUALS AND CULTURES ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>Individuals and cultures</h1>
+    <aside class="notes">The number is stable across a decade, but people differ around it. Who moves more, and does it depend on where you come from?</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:900px;margin:0 auto">
+      <img src="images/fig-sex-0.png" alt="Axis: mean head speed in millimetres per second">
+      <img class="fragment" src="images/fig-sex-1.png" alt="Women">
+      <img class="fragment" src="images/fig-sex-2.png" alt="Men, who move a little more">
+    </div>
+    <p class="kicker" style="margin:.5em 0 0;text-transform:none">Championships · 0.2–5 Hz · median</p>
+    <aside class="notes">Who moves more? Sex and age matter, size does not. (Click for the women, click for the men.) At the championships, <span data-n="sex_n"></span> participants: men move more than women, <span data-n="sexm_med"></span> against <span data-n="sexf_med"></span> mm/s, the median of each, on the same measure as the <span data-n="all_med"></span> mm/s for everyone at the start of the talk: about <span data-n="sex_pct"></span> % more (Mann–Whitney p = <span data-n="sex_mw_p"></span>). The obvious objection is body size, since men are taller and a taller pendulum moves more at the top. But with sex held, height falls to r = <span data-n="height_r"></span>, p = <span data-n="height_p"></span>. A third factor does hold: younger people move more, r = <span data-n="age_r"></span>, p = <span data-n="age_p"></span>, independent of sex and height. So the answer is sex and age, not size (report 36).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <div class="layers" style="width:1300px">
+      <img src="images/fig-empathy-1.png" alt="Correlation of empathic concern with head speed in the lab">
+      <img class="fragment" src="images/fig-empathy.png" alt="Adds the crowd at the championship">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0">The lab study against the 2019 championship crowd</p>
+    <p class="ref">Zelechowska et al. 2020c</p>
+    <aside class="notes">We once published that more empathic people move more to music, from the lab study of <span data-n="emp_lab_n"></span> participants. (Click.) Tested in the crowd of <span data-n="emp_crowd_n"></span> at the 2019 championship, it is r = <span data-n="emp_crowd"></span>, which reads as a failure to replicate. But re-run from the lab study's own deposited data, the lab result is r = <span data-n="emp_lab"></span>, not significant either, and the two studies do not disagree (combined r = <span data-n="emp_pool"></span>, p = <span data-n="emp_pool_p"></span>). Neither sample was large enough to find an effect this size reliably. Not a lab result that failed to travel, but one small association measured twice (report 47).</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <div class="layers" style="width:1000px">
+      <img class="fig " src="images/fig-predictors.png" alt="Forest plot of correlations between participant characteristics and quantity of motion, built row group by row group" style="clip-path:inset(0 0 96% 0)">
+      <img class="fig " src="images/fig-predictors.png" alt="" style="clip-path:inset(88% 0 0 0)">
+      <img class="fig fragment" src="images/fig-predictors.png" alt="" style="clip-path:inset(4% 0 73.4% 0)">
+      <img class="fig fragment" src="images/fig-predictors.png" alt="" style="clip-path:inset(26.6% 0 59.8% 0)">
+      <img class="fig fragment" src="images/fig-predictors.png" alt="" style="clip-path:inset(40.2% 0 25.9% 0)">
+      <img class="fig fragment" src="images/fig-predictors.png" alt="" style="clip-path:inset(74.1% 0 12.5% 0)">
+    </div>
+    <p class="kicker" style="margin:.2em 0 0">Championships · questionnaires</p>
+    <p class="ref">Swarbrick et al. 2025 · Swarbrick 2023 (thesis)</p>
+    <aside class="notes">The book's overview of the questionnaire predictors, one group of rows per click. Of <span data-n="pers_tests"></span> tests on <span data-n="pers_n"></span> participants in the 2022 edition, <span data-n="pers_fdr"></span> survive correction within their families. The most robust signal is metacognitive: people who felt they had not succeeded did move more, r = <span data-n="felt_r"></span>, p = <span data-n="felt_p"></span>. Hours of music listening, dancing or music making, and feeling moved by music, do not predict it (reports 16 and 36). If someone asks about eyes open or closed, as at the Norwegian Academy: the instruction was optional and recorded, and in the one edition with usable answers, <span data-n="eyes_ed"></span> with <span data-n="eyes_n"></span> participants, eyes open went with less motion, rank correlation <span data-n="eyes_rho"></span>, q = <span data-n="eyes_q"></span>. Read the direction, not the size: the coding differs between editions, so there is no corpus figure in millimetres per second (report 03).</aside>
+  </section>
+  <section data-depth="deeper" data-background-image="images/sverm-trial.jpg" data-background-size="cover" data-background-position="center 30%">
+    <div class="overlay fragment"><p class="kicker" style="margin:0">2011–2021</p><p style="margin:0">Sverm</p></div>
+    <aside class="notes">Sverm: the artistic project in which we stood still together, ten minutes at a time, over ten years. (Click for the caption.) The photograph is an audience standstill during Sverm. The next slide sets Sverm beside the championships.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="photofig">
+      <img class="photo keep" src="images/sverm-2012-three.jpg" alt="The three Sverm performers standing still on the lit floor of the lab, chairs around them" style="max-width:640px;max-height:46vh">
+      <canvas data-anim="signature" data-speed="20" width="1160" height="560" aria-label="The head paths of the three Sverm performers seen from above, side by side at the same scale, drawn over ten minutes"></canvas>
+    </div>
+    <aside class="notes">Here are the three performers' heads seen from above, one typical session each, drawn at the same time and at the same scale. You can be recognised by how you stand. You can see the difference without any statistics before the classifier puts a number on it. The three Sverm performers, <span data-n="id_sessions"></span> person-sessions over a decade. The next slide, if there is time, is the classifier (report 01).</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <img class="fig" src="images/fig-signature.png" alt="Scatter of how much the head moves against how stretched the sway is, one dot per session, for three performers whose clouds separate" style="height:56vh">
+    <aside class="notes">The three Sverm performers, <span data-n="id_sessions"></span> person-sessions over a decade. A simple classifier, trained on some sessions and tested on a held-out one, names the right person <span data-n="id_acc"></span> % of the time, against <span data-n="id_chance"></span> % by chance. What separates people is spatial: how much they move, how far and in which direction; the figure shows two of these, how much the head moves and how stretched the sway is. What does not separate them is temporal: the median frequency, the scaling exponent and the jerk are shared. Individuals differ in the amount and direction of their stillness, and share its rhythm. Only three people, so this is a lead, not a population result (report 01).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="photo keep" src="images/taqasim-listeners.jpg" alt="Two listeners with headphones, seen from behind, looking out of windows in Amman and in Oslo" style="width:100%;max-height:none;margin:0">
+    <div class="fragment"><p class="kicker" style="margin:.6em 0 0"><img class="picto keep" src="images/picto/ear.svg" data-dark="images/picto/ear-dark.svg" alt="">2021 to 2022 · Amman and Oslo</p>
+    <p style="margin:0">Listening to the same taqāsīm</p></div>
+    <p class="ref">Al-Ghawanmeh 2025 (thesis)</p>
+    <aside class="notes">A doctoral project at RITMO: listeners in Amman and in Oslo heard the same recorded Arabic taqāsīm improvisation while wearing a head-worn accelerometer, standing, and told only to listen rather than to stand still. The first collection outside the lab and outside Norway, and the first on accelerometers rather than cameras. <span data-n="am_n"></span> listeners in each city. For the Amman listeners it was music of their own tradition; for most of the Oslo listeners it was not. Did one group move more?</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:760px">
+      <img src="images/fig-amman-oslo-a.png" alt="Bar chart: median head speed of listeners in Oslo">
+      <img class="fragment" src="images/fig-amman-oslo.png" alt="Adds the listeners in Amman">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/ear.svg" data-dark="images/picto/ear-dark.svg" alt="">Amman and Oslo · head-worn accelerometers</p>
+    <p class="ref">Al-Ghawanmeh 2025 (thesis)</p>
+    <aside class="notes">Listeners in Amman and Oslo heard the same Arabic taqāsīm, with the same accelerometer on the head, told to stand and listen. Oslo first; (click) then Amman. In the corpus band, Amman moved <span data-n="am_pct"></span> % more by the means, with d = <span data-n="am_d"></span>; the medians shown are <span data-n="am_med"></span> against <span data-n="os_med"></span> mm/s. The t-test gives p = <span data-n="am_tp"></span> and the rank test p = <span data-n="am_up"></span>. The two disagree because Amman's distribution is skewed: a few listeners moved a lot. So the honest statement is that some Amman listeners moved much more, not that everyone did. Familiarity, the setting, and who volunteered are all confounded with the city here. The original analysis could not even ask this, since its derived data were normalised per group; the raw accelerometry made it possible (report 40).</aside>
+  </section>
+</section>
+
+<!-- ===================== 7 MOVING TOGETHER ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>Moving together</h1>
+    <aside class="notes">The second half of the title. What makes people standing still together a group? First how they move: who leads, how the others follow, and the order they keep. Then what happens while they stand, where the answer is that their bodies do not lock together. Coordination here is an event, not a state.</aside>
+  </section>
+  <section data-background-image="images/deichman-2025.jpg" data-background-size="cover" data-background-position="center">
+    <div class="overlay fragment"><p class="kicker" style="margin:0"><img class="picto keep" src="images/picto/walking.svg" data-dark="images/picto/walking-dark.svg" alt="">Stillness 2025 · Deichman Bjørvika, Oslo · October 2025</p><p style="margin:0">Standing still together, walking on cue</p></div>
+    <aside class="notes">Stillness 2025, the public standstill performance at the Deichman Bjørvika main library in Oslo in October 2025. (Click for the caption.) The performers stand still at their stations while the library goes on around them; the blurred figure is a performer walking to the next station. Chest sensors on everyone, for two hours. The next slides are what those sensors show.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="cols" style="grid-template-columns:auto 1fr;gap:1.2em">
+      <img class="photo keep" src="images/deichman-2025-walking.jpg" alt="Performers walking down the stairs of the Deichman library between two standstills" style="max-height:62vh;width:auto">
+      <div>
+        <p class="huge accent"><span data-n="lead_gap"></span> s</p>
+        <p class="big fragment"><img class="picto keep" src="images/picto/walking.svg" data-dark="images/picto/walking-dark.svg" alt="">How early the leader moves</p>
+      </div>
+    </div>
+    <p class="kicker" style="margin:.6em 0 0"><img class="picto keep" src="images/picto/walking.svg" data-dark="images/picto/walking-dark.svg" alt="">Stillness 2025 · Deichman Bjørvika, Oslo</p>
+    <aside class="notes">In Stillness 2025, the public standstill performance at the Deichman Bjørvika library in Oslo in October 2025, <span data-n="grp_n"></span> performers wore chest sensors for two hours, standing still at a series of stations and walking between them. At each of <span data-n="lead_trans"></span> transitions, one person was designated to start walking, without any signal, and the others were to follow when they noticed. (Click.) The leader's motion onset ranks <span data-n="lead_rank"></span> on average against <span data-n="lead_chance"></span> by chance, is first in <span data-n="lead_first"></span> of <span data-n="lead_trans"></span> transitions, and begins <span data-n="lead_gap"></span> s before the median of the others, p = <span data-n="lead_p"></span>. The score worked, and it can be read out of the accelerometers alone. The leader's whole task is to choose the moment, what the Greeks called kairos, as opposed to the measured time of chronos (report 19).</aside>
+  </section>
+  <section class="center-slide">
+    <canvas data-anim="leader" data-speed="5" width="1120" height="760" aria-label="Chest motion of sixteen performers around one departure, one row each, each trace turning purple at that person's motion onset; the leader moves first and the others follow in a cascade"></canvas>
+    <p class="kicker fragment" style="margin:.4em 0 0;text-align:center"><img class="picto keep" src="images/picto/walking.svg" data-dark="images/picto/walking-dark.svg" alt="">Stillness 2025 · chest sensors, one row per performer</p>
+    <aside class="notes">This is one departure in Stillness 2025, the one with the median gap, recorded by the chest sensors (click for the caption): each row is one performer, and the trace turns purple when that person starts to move. The leader goes first, and the others follow one after another over the next twenty-five seconds or so, with no signal other than noticing each other. Then look at the bottom row. One performer stays behind for more than a minute, and that is not chance: the same person is the last to leave in seven of the thirteen departures. So there are roles in a group like this that nobody assigned, one who leads and one who lingers, which is where the next slides go. The animation plays this one departure once and stops; key L gives one tone per onset, the leader's an octave higher (report 19).</aside>
+  </section>
+  <section class="center-slide">
+    <img class="fig" src="images/fig-order.png" alt="For each of sixteen performers, how many seconds after the first mover they left in each of thirteen departures: the same performers are early and the same are late" style="height:70vh">
+    <p class="kicker fragment" style="margin:.8em 0 0">A stable order of who moves first</p>
+    <aside class="notes">That was one departure. Here are all thirteen. Each row is one performer and each dot is one of the thirteen departures: how many seconds after the first to move that person left. The bar is the person's median, and the rows are sorted by it. The same people leave early every time and the same people leave late: the dots of a row stay together. Those marked "led" were appointed leaders in some departures, and they sit at the top, which validates the measure. The bottom row is the performer who lingers. (Click.) In numbers: for each pair of performers, how often does one move before the other across the departures? The rank order agrees between transitions at Kendall tau <span data-n="tau"></span>, positive in <span data-n="tau_pos"></span> % of comparisons, and in <span data-n="casc_det"></span> % of the <span data-n="casc_pairs"></span> pairs one person moves first in more than 80 % of departures. The appointed leaders cluster at the top, which validates the measure, and second place belongs to someone who never led anything. So the group coordinates when it moves, and it does so with roles nobody assigned (report 21).</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1500px;margin:0 auto">
+      <img src="images/fig-breaths-0.png" alt="One minute of breathing for sixteen performers standing still, one row each">
+      <img class="fragment" src="images/fig-breaths-1.png" alt="The same with every breath in marked: the marks do not line up between rows">
+    </div>
+    <p class="kicker fragment" style="margin:.8em 0 0">Together, but not coupled</p>
+    <aside class="notes">So they coordinate when they move. Do their bodies also lock together while they stand? Standing still in a group feels like breathing together. Here is one minute of the third standstill, sixteen chests, one row each, from the breathing belts. (Click.) Every breath in is marked. Look down any column: at any moment some are breathing in and some out, and each keeps its own pace, some slow and some fast. Nothing lines up. (Click.) Together, but not coupled. Each channel is tested against a null that keeps what each body did and destroys only the alignment between bodies. Breathing phase locking is <span data-n="plv_resp"></span> against a null of <span data-n="plv_resp_null"></span>; heartbeat phase <span data-n="plv_card"></span> against <span data-n="plv_card_null"></span>. Deep breaths coincide at <span data-n="sigh_ratio"></span> times chance. Heart rate co-fluctuates at r = <span data-n="hr_raw"></span> until the shared timeline of the performance is removed, and then it is <span data-n="hr_det"></span>. Bodies in a still group respond in parallel to one situation without their physiologies locking together (report 74). The historian Helge Jordheim calls a traffic jam a moment of absolute synchronisation and absolute disruption at once: everyone doing the same thing at the same time because of the situation, not because the drivers are coupled (Lifetimes, punctum books, 2026). A still group is that kind of synchrony.</aside>
+  </section>
+</section>
+
+<!-- ===================== 8 ONE BODY, ONE YEAR ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>One body, one year</h1>
+    <aside class="notes">So far many people, once each. Now the opposite: one body, mine, ten minutes every day for a year, in 365 different rooms. What does a year do to a standing body, and what do the rooms do to it?</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1760px;height:704px;margin-left:calc(50% - 880px)">
+      <img class="fragment keep" src="images/ss365-rutenett.png" alt="A grid of 360-degree images of a standing person in different rooms, row by row" style="clip-path:inset(0% 0 75% 0)">
+      <img class="fragment keep" src="images/ss365-rutenett.png" alt="" style="clip-path:inset(25% 0 50% 0)">
+      <img class="fragment keep" src="images/ss365-rutenett.png" alt="" style="clip-path:inset(50% 0 25% 0)">
+      <img class="fragment keep" src="images/ss365-rutenett.png" alt="" style="clip-path:inset(75% 0 0% 0)">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · one body every day in 2023</p>
+    <aside class="notes">Ten minutes every day for a year. (Click for each row, four clicks.) Every day of 2023 I stood still for ten minutes, <span data-n="n_days"></span> days in all, with a phone on the chest, a 360-degree camera and an ambisonic microphone on a stand in front of me. In offices, churches, libraries, stations, a cabin and outdoors. <span data-n="grid_days"></span> of the days are shown here. Several hundred bodies on one day in the championships, and one body in 365 rooms: two ways of asking the same question.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <canvas data-anim="year" data-speed="40" width="1800" height="640" aria-label="The quantity of motion per day through 2023, one dot per day, with the median as a flat line"></canvas>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · the year 2023</p>
+    <aside class="notes">Does practice make you better? Over <span data-n="trend_n"></span> days with the same phone there is no trend with the day of the year: r = <span data-n="trend"></span>, p = <span data-n="trend_p"></span>. The body stood as still in December as in January. What changed was the experience. The dots arrive day by day: the quantity of motion from the phone on the chest, all <span data-n="year_n"></span> days; the line is the median. Press L before the days arrive and the year plays as one tone per day, brighter when I moved more than the median and darker when less: no melody that rises or falls.</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <div class="layers" style="width:1500px">
+      <img class="fig keep" src="images/fig-yearbody-0.svg" data-dark="images/fig-yearbody-dark-0.svg" alt="">
+      <img class="fig keep fragment" src="images/fig-yearbody-1.svg" data-dark="images/fig-yearbody-dark-1.svg" alt="Practice did not help">
+      <img class="fig keep fragment" src="images/fig-yearbody-2.svg" data-dark="images/fig-yearbody-dark-2.svg" alt="Change from day to day">
+      <img class="fig keep fragment" src="images/fig-yearbody-3.svg" data-dark="images/fig-yearbody-dark-3.svg" alt="The same sway axis every day">
+      <img class="fig keep fragment" src="images/fig-yearbody-4.svg" data-dark="images/fig-yearbody-dark-4.svg" alt="I knew my own stillness">
+      <img class="fig keep fragment" src="images/fig-yearbody-5.svg" data-dark="images/fig-yearbody-dark-5.svg" alt="With others as alone">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · the year 2023</p>
+    <aside class="notes">What did the year do to the body? Five things, one per click. Practice did not help: over <span data-n="trend_n"></span> days with the same phone there is no trend, r = <span data-n="trend"></span>. The days still differ: the median change from one day to the next is <span data-n="consec"></span> %, more than most of what we have looked for. The direction is fixed: I sway along the same axis day after day, with a directional consistency of <span data-n="y33_sway_R"></span> of 1, whatever the room. I knew how it went: on the days when I thought straight afterwards that I had stood still, I had, r = <span data-n="y31_self"></span>. And the <span data-n="co_days"></span> days when I stood together with others do not differ from the rest (ratio <span data-n="year_ratio"></span>). So the body is the same through the year, in amount and in direction, but not from day to day. The sound in the rooms comes in the next part, and the pulse under rhythm (reports 31, 33 and 106).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig" src="images/fig-year-hr.png" alt="Mean heart rate through the session over the year: a peak in the first half minute, a fall over two minutes, then level" style="height:66vh">
+    <aside class="notes">The heart through a session, averaged over <span data-n="yhr_n"></span> days from the sports watch on my wrist; the band is the 95 % interval. It starts high, about <span data-n="yhr_start"></span> beats per minute, and peaks just after the start, probably from the clap I used to synchronise the recordings and a few deep breaths. Then it falls for about two minutes and stays level near <span data-n="yhr_late"></span> for the rest of the session. So the first two minutes of a standstill are not yet a standstill for the heart, although the body is already still. I come back to that under time.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig" src="images/fig-year-hr-month.png" alt="Median heart rate per month over the year: highest in March and November, lowest in August" style="height:66vh">
+    <aside class="notes">And the heart across the year: the median of each day, by month, with the middle half of the days as the band, <span data-n="yhrm_n"></span> days. Highest in <span data-n="yhrm_hi"></span>, <span data-n="yhrm_hi_v"></span> beats per minute, and lowest in <span data-n="yhrm_lo"></span>, <span data-n="yhrm_lo_v"></span>. That fits what large studies find, higher in the cold months and lower in summer, and it fits a teaching year too: mid-term against holiday. It is one person, and place and time of day changed with the season, so I read it as a description, not an effect. What did not follow the season is the motion: the body stood as still in August as in March.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig" src="images/fig-year-temp.png" alt="Mean skin temperature through the session over the year: a steady rise of about half a degree" style="height:66vh">
+    <aside class="notes">The skin through a session, from the same watch, <span data-n="ytemp_n"></span> days. It rises steadily, <span data-n="ytemp_rise"></span> degrees from the second minute to the end. I first read this as the body warming when it stands still. It is not: in the group performance the same rise appears in fourteen of sixteen performers, and it is the same when they walk. A skin sensor drifts towards body temperature in any sustained bout, whatever the body does. I show it as a warning: a clear trend in a clean figure, and the control says it is the sensor (report 98).</aside>
+  </section>
+  <section class="center-slide">
+    <div id="atlas" class="atlas"></div>
+    <p id="atlas-facts" class="atlas-facts">Point at a room</p>
+    <p class="kicker" style="margin:.2em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · twelve of the 365 rooms</p>
+    <aside class="notes">An atlas of the year. <span data-n="atlas_days"></span> of the 365 days, chosen for contrast: the three quietest rooms, the three loudest, three with the largest fluctuations and three with a story. Point at an image and 15 seconds from that day's recording plays, and the day appears under the images: the room and the place, the sound level in dB below full scale (report 78), the quantity of motion from the phone, the pulse from the watch, and what I wrote about the sound in my diary that day. The diary notes are my own words, shortened; the DNVA version of this slide translated them into Norwegian. The loudness is evened out between the nine loudest; the measured level is in the numbers. The three quietest rooms, the sauna, the anechoic chamber and the bedroom, were quieter than the recorder's own hiss, so they play softly: what you hear is hiss and a faint event, footsteps outside or a voice, and that is how they were. From the anechoic chamber to the garage with the ventilation system there are <span data-n="atlas_span"></span> dB, and the body stood about as still in both. (Point at two or three: the anechoic chamber, the cabin with the sheep's bell, the garage.)</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <div class="layers" style="width:1500px">
+      <img src="images/fig-room-a.png" alt="Empty figure with five measures of the room: sound level, brightness of the sound, sound events, motion and light">
+      <img class="fragment" src="images/fig-room.png" alt="All five lie close to zero: the room is not related to how much I moved">
+    </div>
+    <p class="kicker" style="margin:.8em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · the year 2023</p>
+    <aside class="notes">Does the room move the body? Over <span data-n="y31_days"></span> days with the same phone I compared how much I moved with five measures of the room that day, with the day of the year held fixed. (Click.) Sound level, brightness of the sound, how much happens in the sound, and motion and light in the image: none of them holds after correction for many tests. Sound level is closest, at <span data-n="y31_level"></span>. A louder, busier and brighter room did not give a restless body. The same goes for direction: the sound came from its own fixed side of the room (directional consistency <span data-n="y33_sound_R"></span> of 1), I swayed along my own fixed axis, and the two have nothing to do with each other (r = <span data-n="y33_r"></span>). The sway axis is fixed to the body, not to the room; an earlier published claim that sound direction pulls sway direction did not survive the corrected ambisonic decode (report 08). The axis runs to 0.5 in each direction, so it is visible how small the relations are (reports 31 and 33).</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig keep panel" src="images/ss365-159-clock.png" alt="Spectrogram of a recording in which a clock ticks in periods, with a picture of the room and the clock" style="max-height:66vh">
+    <p class="kicker fragment" style="margin:.5em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · a clock that ticked on and off</p>
+    <aside class="notes">A clock that ticked on and off. An ordinary meeting room with glass walls and the drone of ventilation. What caught my attention was a clock on the wall that ticked only in periods: the ticking came and went, perhaps because the clock had once fallen to the floor and the hands were out of position. The result was a rhythm in two layers, the second tick and a slow pulse of ticking and silence, visible as the bright fields in the spectrogram. It is the closest I came to an external clock during the year, and I stood listening to it. The figure is the book's.</aside>
+  </section>
+  <section class="center-slide">
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.2em">
+      <img class="photo round" src="images/ss365-186.png" alt="360-degree image from a bus shelter where the person stands under a wasps' nest" style="height:34vh;width:34vh;max-height:none;object-fit:contain;margin:0">
+      <img class="photo fragment" src="images/ss365-vepsebol.jpg" alt="A wasps' nest under a roof" style="height:34vh;width:auto;max-height:none;margin:0">
+      <canvas class="fragment" data-anim="wasp" data-speed="30" width="900" height="460" aria-label="The motion through the session that day, even and slightly above the year's median all the time"></canvas>
+    </div>
+    <p class="kicker" style="margin:.6em 0 0"><img class="picto keep" src="images/picto/phone.svg" data-dark="images/picto/phone-dark.svg" alt="">StillStanding365 · ten minutes under a wasps' nest</p>
+    <aside class="notes">Ten minutes under a wasps' nest. The experience of ten minutes was very different from day to day. Here I stood in a bus shelter and discovered only after I had started that a wasps' nest hung right above my head. (Click.) I stayed, with wasps around my head, and it was nerve-racking and fascinating at the same time. Another day there were mosquitoes, and that session felt unbearably long. On other days ten minutes were over before I knew it. What I remember from a session is nearly always the disturbance. (Click.) But the body? The curve is drawn while I talk, 30 times faster than real time: the motion from the phone on the chest that day, in windows of ten seconds, and the dashed line is the year's median. I moved a little more than usual, more than on <span data-n="wasp_pct"></span> % of the days, but evenly all the time, without peaks when the wasps came close. The experience was dramatic; the body was not.</aside>
+  </section>
+</section>
+
+<!-- ===================== 9 TIME ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>Time</h1>
+    <aside class="notes">Finally time: what all this says about time as we live it, and the answer to the question from the start, how long are ten minutes?</aside>
+  </section>
+  <section>
+    <div class="layers wide" style="margin:0 auto">
+      <img class="fig keep" src="images/fig-times-0.svg" data-dark="images/fig-times-dark-0.svg" alt="Clock time: a clock face">
+      <img class="fig keep fragment" src="images/fig-times-1.svg" data-dark="images/fig-times-dark-1.svg" alt="Body time: a body with a heart">
+      <img class="fig keep fragment" src="images/fig-times-2.svg" data-dark="images/fig-times-dark-2.svg" alt="Lived time: a head with a wavy thought">
+      <img class="fig keep fragment" src="images/fig-times-3.svg" data-dark="images/fig-times-dark-3.svg" alt="The disciplines above each kind of time: physics and technology, physiology and kinesiology, psychology and phenomenology, joined by one line underneath">
+    </div>
+    <aside class="notes">Back to the minute you stood at the start, and what I am left with after fifteen years. Clock time is the one we can set: ten minutes are ten minutes, and your minute was the same length for everybody. (Click.) Body time is surprisingly similar: the motion accumulates as a straight line, the breath and the pulse go their own ways, and a year of practice does not change the number. (Click.) Lived time follows neither. Ten minutes can pass far too quickly or unbearably slowly, depending on the room, on what happens in it, and on what you are thinking; your minute ended at very different moments. Lived time corresponds little to clock time or to the body's biological processes. (Click.) Each kind of time has its disciplines: clock time belongs to physics and technology, body time to physiology and kinesiology, lived time to psychology and phenomenology. Each answers its own question well, and none of them answers how long ten minutes are. That is why I try to build a bridge between all of them. This slide was first made for a symposium on time at the Norwegian Academy of Science and Letters on 16 November, with a metrologist, a chronobiologist, physicists, a historian, a sociologist and a philosopher; the chronobiologist's point that a biological clock needs a rhythmic environment to entrain to, a zeitgeber, is the question the music and rhythm strips asked of the standing body. In a person standing still, all three times exist at once, and they do not keep time with each other. Herder said it in 1799: "My pulse, my step or the flight of my thoughts is not a temporal standard for others"; there are "innumerable different times" (quoted in the introduction to Lifetimes, punctum books, 2026). The next slides take the three in turn, each with the collection that measures it: clock time and body time with my year of standing still, StillStanding365 in 2023, and lived time with the artistic project Sverm, where the question began.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers wide" style="margin:0 auto">
+      <img src="images/fig-actogram-a.png" alt="Actogram for 2023: one row per day, the hours of the day along, the daylight in Oslo as background">
+      <img class="fragment" src="images/fig-actogram.png" alt="The ten minutes of standstill each day, placed at the time of day and coloured by the motion">
+    </div>
+    <p class="kicker" style="margin:.8em 0 0"><img class="picto keep" src="images/picto/clock.svg" data-dark="images/picto/clock-dark.svg" alt="">Clock time · StillStanding365 · the year 2023</p>
+    <aside class="notes">Clock time first, and the collection is the year 2023, StillStanding365. An actogram, the figure of chronobiology. Each row is one day in 2023, the day runs along from midnight to midnight. The background is the daylight in Oslo: the year breathes, short days in January and December, short nights in June. Look at the edges. They are not smooth, and they are not mirror images of each other. The notches in March and October are daylight saving time: the sun does not move, it is the clock that jumps an hour. And the shape is skewed because the sun is highest at about <span data-n="acto_noon_winter"></span> in winter and <span data-n="acto_noon_summer"></span> in summer, not at twelve o'clock, since Oslo lies west of the middle of its time zone. Already here there are two times in the same picture: the sun's, which is even, and the clock's, which we have agreed on. (Click.) And here are the <span data-n="acto_days"></span> sessions, ten minutes each, placed where in the day I stood, from <span data-n="acto_early"></span> to <span data-n="acto_late"></span>, and coloured by how much I moved. Three times in one picture. Clock time decided when I stood, and it was spread over the whole day. The light follows the rhythm of the sun and the year, and the clock cuts into it with its notches. But the body follows neither: the colours have no pattern over the year, the correlation with the season is <span data-n="ry_year_body"></span>, and it is not significant. The daylight is Oslo's; I was not always there.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="photofig">
+      <img class="photo keep" src="images/ss365-2023-12-26.jpg" alt="A man standing still in front of a wooden door, a phone strapped to his chest and a camera on a tripod in front of him" style="max-width:440px">
+    <div class="layers wide" style="margin:0 auto">
+      <img src="images/fig-settling-a.png" alt="One dot per day: when the motion settled, with the median marked">
+      <img class="fragment" src="images/fig-settling.png" alt="The same, with when the heart settled; open dots are days when it had not yet settled">
+    </div>
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/heart.svg" data-dark="images/picto/heart-dark.svg" alt="">Body time · StillStanding365 · the year 2023</p>
+    <aside class="notes">Then body time, from the same year: the phone on the chest, as in the photograph, and the pulse watch. How long does it take for the body to calm down after I take my position? Each dot is one day of the year. The green row is when the motion had settled, that is, stopped decreasing. (Click.) The purple row is the same for the pulse: when it stopped falling. The dots far right are days when the pulse had not yet settled when the recording stopped after eight minutes, so they would have been even further out. Over <span data-n="settle_days"></span> days in my year of standstill, the motion settles after a median of <span data-n="settle_body"></span> seconds, while the heart needs <span data-n="settle_heart"></span>, <span data-n="settle_ratio"></span> times as long. On <span data-n="settle_cens"></span> % of the days the heart had not yet settled when the recording stopped. The pulse falls by a median of <span data-n="hr_drop"></span> beats per minute. The body is still long before it is at rest (report 17).</aside>
+  </section>
+  <section data-background-image="images/sverm-2012-performers.jpg" data-background-size="cover">
+    <div class="overlay fragment"><p class="kicker" style="margin:0">2011–2021 · Sverm</p><p style="margin:0">Ten minutes, again and again</p></div>
+    <aside class="notes">And lived time, which no sensor records. For that the collection is Sverm, the artistic project where the question began. (Click for the caption.) It began in 2010 with a simple question: does music make people move? The way to find out was to ask people not to move, and to measure what was left. From 2011 the three of us stood still together in the lab, ten minutes at a time, time after time, in the artistic project Sverm, with the dancer Kari Anne Vadstensvik Bjerkestrand and the violinist Victoria Johnson. We measured the motion with motion capture and wrote down what we noticed after each session. It was never a competition: the task was to stand, not to be as still as possible. Standstill became both the method and what we studied, and the observations about breathing, sway, attention and time from those sessions became the hypotheses the later studies tested. The photograph is from a Sverm performance in 2012.</aside>
+  </section>
+  <section data-background-image="images/sverm-2012-discussion.jpg" data-background-size="cover">
+    <div class="overlay fragment"><p class="kicker" style="margin:0"><img class="picto keep" src="images/picto/group.svg" data-dark="images/picto/group-dark.svg" alt="">Sverm · 2012</p><p class="quoteover">"Was that really ten minutes?"</p><p class="ref" style="margin:.2em 0 0">Jensenius 2023</p></div>
+    <aside class="notes">(Click for the caption.) After the first session we looked at each other and wondered whether something had gone wrong. "Was that really ten minutes?" Kari Anne asked. We checked the recording, and it was. Apart from a few long minutes at the start, time had passed quickly. Later I once forgot to set the timer, and Kari Anne said that now it felt as if ten minutes had passed. She was off by only a few seconds. We developed a fairly precise sense of how long ten minutes are, as long as we stood in the same room. The photograph is one of our conversations after a session, in April 2012.</aside>
+  </section>
+  <section data-depth="more" data-background-image="images/sverm-2012-finger.jpg" data-background-size="cover">
+    <div class="overlay fragment"><p class="kicker" style="margin:0"><img class="picto keep" src="images/picto/group.svg" data-dark="images/picto/group-dark.svg" alt="">Sverm</p><p style="margin:0">With a task in mind, time passed faster</p></div>
+    <aside class="notes">In Sverm we tried different mental tasks while standing still: meditation, counting and the like. The motion did not change measurably. But all three of us experienced that a task made the ten minutes pass faster, and we liked those sessions better. The same number, different minutes. The literature distinguishes between judging duration and experiencing the passage of time, and meditation studies suggest that a changed body awareness changes the experience of inner time; I recognise that. The photograph is from a Sverm session in 2012: one of the performers following a small action of her own hand.</aside>
+  </section>
+  <section data-depth="more">
+    <div class="layers" style="width:1500px">
+      <img class="fig keep" src="images/fig-matrix-0.svg" data-dark="images/fig-matrix-dark-0.svg" alt="The spatiotemporal matrix: time along and space up, each in micro, meso and macro">
+      <img class="fig keep fragment" src="images/fig-matrix-1.svg" data-dark="images/fig-matrix-dark-1.svg" alt="The row standstill lives in: micro in space, across all three levels in time">
+      <img class="fig keep fragment" src="images/fig-matrix-2.svg" data-dark="images/fig-matrix-dark-2.svg" alt="The body's clocks in the three cells: heartbeat and sway, breathing and weight shifting, ten minutes and a year">
+    </div>
+    <p class="kicker" style="margin:.4em 0 0"><img class="picto keep" src="images/picto/group.svg" data-dark="images/picto/group-dark.svg" alt="">Sverm · how we worked with time and space</p>
+    <aside class="notes">Time and space. From the book: a matrix with time along and space up, both in three scales. A word about the words: when I say micro, I mean a short time or a small extent, not one individual, as it means in the social sciences, and not single particles, as it means in physics. I speak of scale, not of level. The historians have the nearest relative: Braudel's event, conjuncture and long duration are micro, meso and macro in time. Meso is the ordinary: words, phrases and everyday actions in time, the centimetre scale in space. Micro is the smallest we can control and perceive, macro is what goes beyond short-term memory and the kinesphere. (Click.) Standstill lives in the bottom row: millimetres in space, but across the whole time axis. (Click.) Heartbeat and sway under half a second, breathing and weight shifting in seconds, and then ten minutes and a whole year.</aside>
+  </section>
+  <section data-depth="more" data-background-image="images/sverm-makro-mikro.jpg" data-background-size="contain" data-background-color="#000">
+    <div class="overlay fragment"><p class="kicker" style="margin:0">Sverm · large in space, short in time</p><p style="margin:0">Liberating, but uncontrolled</p></div>
+    <aside class="notes">How did we work with time and space in Sverm? We used the matrix: micro, meso and macro in space and in time, nine cells in all. Before a session we might agree to spend ten minutes on actions in one cell, with a finger or a foot. The extremes were the hardest. This is one of them: large and fast actions, macro in space and micro in time, in a cramped lab without hitting each other. The image is the average of five minutes of video, which is why we are smeared out. After weeks of standing still and tiny actions it was liberating, but it was not what Sverm was about.</aside>
+  </section>
+  <section data-depth="more" data-background-image="images/sverm-hoderotasjon.jpg" data-background-size="cover">
+    <div class="overlay fragment"><p class="kicker" style="margin:0">Sverm · small in space, long in time</p><p style="margin:0">Ninety degrees in five minutes</p></div>
+    <aside class="notes">The other extreme: tiny actions that last a long time, micro in space and macro in time. In one exercise we held a finger in front of the eyes and moved it one centimetre in five minutes; I found that the finger stood stiller than the rest of my body. One such action went into the performance: in the piece Head Rotation, two of the performers turned their heads ninety degrees in five minutes while the light went from red to blue, which took hours of practice to do evenly. A member of the audience wrote afterwards about watching closely and then suddenly discovering that both heads had turned and the light had changed: what happened? A motion that slow cannot be followed: short-term memory does not span it, and we notice the change only by comparing with what we remember. From the inside it was also different from standing still: a small action over a long time needs an intention, and that switched on its own kind of attention in those of us doing it. The performers have consented to the photograph being shown.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1600px;margin:0 auto">
+      <img src="images/fig-events-0.png" alt="The motion as one continuous curve over ten minutes, with clock time below in equal minutes">
+      <img class="fragment" src="images/fig-events-1.png" alt="The state: an arrow over the whole session">
+      <img class="fragment" src="images/fig-events-2.png" alt="The event: a short stretch with an action in the middle of the state">
+      <img class="fragment" src="images/fig-events-3.png" alt="Event time: the same minutes, compressed in the state and stretched out around the event">
+    </div>
+    <p class="kicker" style="margin:.8em 0 0"><img class="picto keep" src="images/picto/group.svg" data-dark="images/picto/group-dark.svg" alt="">Sverm · states and events</p>
+    <aside class="notes">In Sverm we explored the difference between clock time and event time, through states and events. At the top, the motion in a session: it is continuous, with no beginning and no end. Under it clock time, ten equal minutes. (Click.) Standing still became a state for us: something that lasts without anything changing, and we went into each session as if it would last for ever. (Click.) An event is a change. "After standing there for three minutes, moving my finger one centimetre felt like an explosion", Victoria said in one of our conversations in 2012, and that was where the words state and event came from. (Click.) Clock time is the same through the whole session. Event time is not: in the state the minutes run together, and around the event they are stretched out. It is the events that divide lived time, not the clock. We also tried going from one state to another, from standing still to swaying, and the transition felt like an action in itself. And an action that is small in space and long in time, like the finger moved one centimetre in ten minutes, can last as long as the state but feel completely different: it is the intention that separates them, not the duration. The figure is abstract, after a sketch in the book.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <h2><img class="picto keep" src="images/picto/head.svg" data-dark="images/picto/head-dark.svg" alt="">Do we know our own stillness?</h2>
+    <div class="pair">
+      <div class="fragment"><p class="huge accent"><span data-n="rho_felt"></span></p><p class="big">felt that they moved</p></div>
+      <div class="fragment"><p class="huge purple"><span data-n="rho_tiresome"></span></p><p class="big">found it tiring</p></div>
+    </div>
+    <p class="kicker" style="margin:.8em 0 0"><img class="picto keep" src="images/picto/camera.svg" data-dark="images/picto/camera-dark.svg" alt="">Championships · questionnaires, <span data-n="n03_ed"></span></p>
+    <aside class="notes">One collection asked people about their own experience: the questionnaires in <span data-n="n03_n_ed"></span> championships, <span data-n="n03_ed"></span>, so this slide is the championships, not Sverm. Of <span data-n="n03_items"></span> questions tested, <span data-n="n03_surv"></span> survive correction, and the clearest are what people noticed about themselves. (Click for each number.) Those who felt they had moved, had (rank correlation <span data-n="rho_felt"></span>, <span data-n="n_felt"></span> participants). Those who found it tiring or difficult also moved more (<span data-n="rho_tiresome"></span>, <span data-n="n_tiresome"></span> participants). Whether they felt the music made them move does not go with how much they moved (<span data-n="rho_felt_music"></span>), and how much music they listen to normally does not matter (<span data-n="rho_listen"></span>). Two further associations survive and are harder to read: more weekly exercise and locked knees go with more motion. The relations are weak: we know our own stillness a little, but not much. The questionnaires did not ask how the time passed; what I say about felt duration rests on my own experience and the Sverm diaries (report 03).</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers wide" style="width:1600px">
+      <img class="fig keep" src="images/fig-musictime-0.svg" data-dark="images/fig-musictime-dark-0.svg" alt="A music note">
+      <img class="fig keep fragment" src="images/fig-musictime-1.svg" data-dark="images/fig-musictime-dark-1.svg" alt="Clock time: tempo and note values">
+      <img class="fig keep fragment" src="images/fig-musictime-2.svg" data-dark="images/fig-musictime-dark-2.svg" alt="Body time: a tempo near the walk">
+      <img class="fig keep fragment" src="images/fig-musictime-3.svg" data-dark="images/fig-musictime-dark-3.svg" alt="Lived time: the beat is a window">
+    </div>
+    <p class="ref">Danielsen et al. 2019</p>
+    <aside class="notes">And music? Mine is musicology, and music is perhaps where the three times meet most clearly. (Click.) Clock time: music is written and played in clock time, with tempo in beats per minute and note values that divide time into equal pieces. (Click.) Body time: the tempo is not arbitrary. People prefer musical tempi around 120 to 125 beats per minute (Moelants 2002), close to the two oscillations per second we find when we walk and tap, and dance music lies a little above (Moelants 2008). (Click.) Lived time: the beat is not a point but a window, as we saw with the beat, and a piece of music can feel shorter or longer than the clock shows. Music uses clock time and borrows the body's tempo, but it is in lived time that it works. That was also why I began with music: the question was whether the time of music could pull the body along. The answer from the standstill is that the body does not follow the beat. Jonathan Kramer called this vertical time: music without goal-directed motion, a single extended present, as against the linear time of tonal music (The Time of Music, 1988). Ten minutes of standing still is vertical time.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1600px;margin:0 auto">
+      <img src="images/fig-felt-0.png" alt="Clock time against felt time: the clock is a straight diagonal">
+      <img class="fragment" src="images/fig-felt-1.png" alt="The experience: long minutes at the start, then time passes faster, with a wide band because people differ">
+      <img class="fragment" src="images/fig-felt-2.png" alt="How fast time passes: the clock is one line at 1">
+      <img class="fragment" src="images/fig-felt-3.png" alt="The experience is a wide band, from almost stopping to double speed">
+    </div>
+    <p class="kicker" style="margin:.8em 0 0"><img class="picto keep" src="images/picto/group.svg" data-dark="images/picto/group-dark.svg" alt="">Sverm diaries and my own year · abstract, not measured</p>
+    <aside class="notes">To gather it all: how does felt time differ from clock time? The figure is abstract, not measured. Left, ten minutes of clock time along and felt time up. The clock is the diagonal: one minute is one minute. (Click.) The experience does not follow it. The first minutes are long, the curve lies above the clock; then time speeds up, and after ten minutes it has felt like less. "Was that really ten minutes?" The band around is that people differ: for some it goes far too fast, for others unbearably slowly. (Click.) Right, the same as a frequency: how fast time passes, felt minutes per clock minute. The clock runs at one speed, always, a single line, like a pure tone. (Click.) The experience is a band, from almost stopping to double speed, depending on the room, the task and what happens. It is the same figure as the onset we saw with the beat: the clock gives a point, the experience gives a shape. Our questionnaires never asked about duration, so this rests on our own experience and the Sverm diaries; one question on felt duration in the next championship would start to close the gap, and this is where I would welcome help from the time-perception people in this room. So what is time? For a body standing still, it is at least three things, and it is the difference between them that is interesting.</aside>
+  </section>
+</section>
+
+<!-- ===================== 10 THE DATABASE ===================== -->
+<section>
+  <section class="center-slide">
+    <h1>The Oslo Standstill Database</h1>
+    <p class="kicker fragment" style="margin:.5em 0 0">Zenodo · CC BY 4.0 · one record per collection</p>
+    <aside class="notes">Everything in this talk can be checked. The recordings are published as the Oslo Standstill Database on Zenodo, open under CC BY 4.0 (click for the caption), with one record per collection and one per championship year, each with its own DOI, a self-check script, a checksum list and a data dictionary. The numbers in this talk come from numbered analysis reports that read those records, and the slides read the reports. The figures on this graphic are drawn from marker traces. The QR code on the closing slide points to it.</aside>
+  </section>
+  <section class="center-slide" data-depth="more">
+    <img class="fig" src="images/fig-corpus_matrix.png" alt="Table of the collections in the database: years, number of participants, data types and tasks" style="height:58vh">
+    <aside class="notes">The collections at a glance: the artistic origin study, the championships, the lab study of headphones and loudspeakers, the Amman and Oslo listeners, one body for a year, a brain-imaging pilot, and the group performance at the library. Two optical systems, several accelerometers and body sites. Almost every large difference in this corpus is confounded between device, body site and task, so a number is never quoted without naming all three. The table is the book's.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="big">Cleaning up fifteen years of data</p>
+    <aside class="notes">A word about how the database came about, because it is not what I expected. The recordings were made over fifteen years, by many people, for many purposes, on many devices. Turning them into one database that others can use was a project of its own, and it changed several of the results I have shown you.</aside>
+  </section>
+  <section class="center-slide">
+    <div class="layers" style="width:1700px;margin:0 auto">
+      <img src="images/fig-process-0.png" alt="Seven collections of recordings on a time line from 2010 to 2025">
+      <img class="fragment" src="images/fig-process-1.png" alt="Above them, seventeen papers and theses from 2012 to 2025, joined by arcs">
+      <img class="fragment" src="images/fig-process-2.png" alt="To the right, 2026 at a larger scale: hundreds of ticks, one per round of work with AI agents on the database, the book and the toolbox">
+    </div>
+    <aside class="notes">First the recordings: <span data-n="proc_collections"></span> collections, <span data-n="proc_years"></span>, each bar a period of recording. (Click.) Then the way we have always worked. Each dot is a paper or a thesis, <span data-n="proc_papers"></span> of the ones on these slides, each one a round with colleagues and students: record, analyse, publish, and then the next question. Each round took a year or two, and each used its own files, its own scripts and its own way of measuring. (Click.) And then this year. From <span data-n="proc_first"></span> I have worked with AI agents on the whole material at once, and here the time scale changes: the right panel is six months. Each tick is one round of work that was saved: <span data-n="proc_r0"></span> on the database and its <span data-n="proc_reports"></span> analysis reports, <span data-n="proc_r1"></span> on the book, <span data-n="proc_r2"></span> on the analysis toolbox, <span data-n="proc_rounds"></span> in all. A round is me asking, an agent doing, me reading and correcting, often several agents checking each other. That is how the measure became one measure for all the collections, how the markers on stands were found to carry most of the music effect, and how some of our published numbers turned out not to hold. It is not faster science so much as more rounds of the same science: more checking than any of us had time for alone. The responsibility for every claim is still mine.</aside>
+  </section>
+  <section data-depth="deeper" data-background-image="images/notesheet-2022-upright.jpg" data-background-size="contain" data-background-color="#14171c">
+    <div class="overlay fragment"><p class="kicker" style="margin:0">May 2022</p><p style="margin:0">What raw data look like</p></div>
+    <aside class="notes">The note sheet from the 2022 edition: groups, time slots, positions, and in red the recordings that glitched. Reconciling sheets like this with the files they describe took much of the work of turning fifteen years of recordings into a database. In 2022 the recruited, recorded and analysed counts are three different numbers, and each is right for its purpose.</aside>
+  </section>
+  <section class="center-slide" data-depth="deeper">
+    <img class="shot" src="images/shot-zenodo.png" alt="Screenshot of the umbrella record of the Oslo Standstill Database on Zenodo" style="max-height:60vh">
+    <p class="kicker fragment" style="margin:.5em 0 0"><img class="picto keep" src="images/picto/database.svg" data-dark="images/picto/database-dark.svg" alt="">the umbrella record, September 2026</p>
+    <aside class="notes">The umbrella record on Zenodo, screenshot from September 2026. It holds no data itself and names its collections, so a reader can cite exactly the year or collection they used.</aside>
+  </section>
+</section>
+
+<!-- ===================== 11 CLOSING ===================== -->
+<section>
+  <section class="center-slide">
+    <p class="huge accent" style="font-size:12em;margin:0">=</p>
+    <aside class="notes">What it adds up to.</aside>
+  </section>
+  <section>
+    <div class="qa">
+      <p class="q fragment" data-fragment-index="0">How much do we move?</p><p class="a fragment" data-fragment-index="0"><span data-n="grand"></span> mm/s</p>
+      <p class="q fragment" data-fragment-index="1">Made of what?</p><p class="a fragment" data-fragment-index="1">Sway, breath, heartbeat</p>
+      <p class="q fragment" data-fragment-index="2">Does music move us?</p><p class="a fragment" data-fragment-index="2">A little: <span data-n="lift"></span> %</p>
+      <p class="q fragment" data-fragment-index="3">On the beat?</p><p class="a fragment" data-fragment-index="3">No</p>
+      <p class="q fragment" data-fragment-index="4">What matters more?</p><p class="a fragment" data-fragment-index="4">The task: <span data-n="dance_x"></span> × when dancing</p>
+      <p class="q fragment" data-fragment-index="5">Who moves more?</p><p class="a fragment" data-fragment-index="5">No trait predicts it</p>
+      <p class="q fragment" data-fragment-index="6">In sync together?</p><p class="a fragment" data-fragment-index="6">No, but in order</p>
+      <p class="q fragment" data-fragment-index="7">How long is ten minutes?</p><p class="a fragment" data-fragment-index="7">Depends on the clock</p>
+    </div>
+    <aside class="notes">The questions of the talk, with the short answers, one per click. How much do people move when standing still? About five millimetres a second at the head, the same for a decade. What is that motion made of? Slow sway, mostly front and back, with the breath and the heartbeat on top. Does music make people move? A little, about one per cent, mostly up and down; our larger published effects were mostly the equipment, so put a marker on something that cannot hear. Does the body follow the beat? No, and that null is a strong one. What matters more than the music? The task: free to dance, people move some seventy times more, and they follow the music's form. Who moves more? Men a little more than women, the young a little more than the old; no personality trait we measured predicts it, and the empathy result did not replicate. Do people standing together synchronise? Not their breath or their hearts, but they move in a stable order when they move. And how long are ten minutes? It depends on the clock: clock time, body time and lived time run side by side without keeping time with each other.</aside>
+  </section>
+  <section class="center-slide corners">
+    <img class="photo keep" src="images/fig-omslag.svg" alt="Placeholder cover of the book Still Standing: the shoes from the year of daily standstills, title, subtitle, author and Cambridge University Press" style="max-height:27vh">
+    <img class="keep fragment" data-fragment-index="1" src="images/qr-osdb.svg" alt="QR code for the Oslo Standstill Database on Zenodo, doi.org/10.5281/zenodo.21653072" style="position:absolute;right:0;top:0;width:220px;height:220px;background:#fff;border-radius:12px;padding:8px;box-sizing:border-box;margin:0">
+    <p class="kicker fragment" data-fragment-index="1" style="position:absolute;right:0;top:225px;width:220px;text-align:center;margin:0">Data</p>
+    <p style="position:absolute;left:0;top:0;margin:0"><a href="https://www.arj.no/" target="_blank" rel="noopener">arj.no</a></p>
+    <div class="people fragment">
+      <div><img src="images/people/kari-anne-vadstensvik-bjerkestrand.jpg" alt=""><p>Kari Anne Vadstensvik Bjerkestrand</p></div>
+      <div><img src="images/people/victoria-johnson.jpg" alt=""><p>Victoria Johnson</p></div>
+      <div><img src="images/people/lisa-dillan.jpg" alt=""><p>Lisa Dillan</p></div>
+      <div><img src="images/people/maja-roel.jpg" alt=""><p>Maja Roel</p></div>
+      <div><img src="images/people/elisabeth-kjeldahl-nilsson.jpg" alt=""><p>Elisabeth Kjeldahl Nilsson</p></div>
+      <div><img src="images/people/agata-zelechowska.jpg" alt=""><p>Agata Zelechowska</p></div>
+      <div><img src="images/people/victor-gonzalez-sanchez.jpg" alt=""><p>Victor Gonzalez-Sanchez</p></div>
+      <div><img src="images/people/maham-riaz.jpg" alt=""><p>Maham Riaz</p></div>
+      <div><img src="images/people/jinyue-arthur-guo.jpg" alt=""><p>Jinyue (Arthur) Guo</p></div>
+      <div><img src="images/people/bilge-serdar.jpg" alt=""><p>Bilge Serdar</p></div>
+      <div><img src="images/people/fadi-al-ghawanmeh.jpg" alt=""><p>Fadi Al-Ghawanmeh</p></div>
+      <div><img src="images/people/mari-lesteberg.jpg" alt=""><p>Mari Lesteberg</p></div>
+      <div><img src="images/people/dana-swarbrick.jpg" alt=""><p>Dana Swarbrick</p></div>
+      <div><img src="images/people/simon-hffding.jpg" alt=""><p>Simon Høffding</p></div>
+      <div><img src="images/people/finn-upham.jpg" alt=""><p>Finn Upham</p></div>
+      <div><img src="images/people/laura-bishop.jpg" alt=""><p>Laura Bishop</p></div>
+      <div><img src="images/people/ragnhild-torvanger-solberg.jpg" alt=""><p>Ragnhild Torvanger Solberg</p></div>
+      <div><img src="images/people/kristian-nymoen.jpg" alt=""><p>Kristian Nymoen</p></div>
+      <div><img src="images/people/stle-a-skogstad.jpg" alt=""><p>Ståle A. Skogstad</p></div>
+      <div><img src="images/people/arve-voldsund.jpg" alt=""><p>Arve Voldsund</p></div>
+      <div><img src="images/people/mari-romarheim-haugen.jpg" alt=""><p>Mari Romarheim Haugen</p></div>
+      <div><img src="images/people/kayla-burnim.jpg" alt=""><p>Kayla Burnim</p></div>
+      <div><img src="images/people/ximena-alarcn.jpg" alt=""><p>Ximena Alarcón</p></div>
+      <div><img src="images/people/charles-p-martin.jpg" alt=""><p>Charles P. Martin</p></div>
+      <div><img src="images/people/bruno-laeng.jpg" alt=""><p>Bruno Laeng</p></div>
+      <div><img src="images/people/jonna-vuoskoski.jpg" alt=""><p>Jonna Vuoskoski</p></div>
+      <div><img src="images/people/rolf-inge-gody.jpg" alt=""><p>Rolf Inge Godøy</p></div>
+      <div><img src="images/people/tor-halmrast.jpg" alt=""><p>Tor Halmrast</p></div>
+      <div><img src="images/people/diana-kayser.jpg" alt=""><p>Diana Kayser</p></div>
+      <div><img src="images/people/anders-tveit.jpg" alt=""><p>Anders Tveit</p></div>
+      <div><img src="images/people/minho-song.jpg" alt=""><p>Minho Song</p></div>
+      <div><img src="images/people/andreas-bergsland.jpg" alt=""><p>Andreas Bergsland</p></div>
+      <div><img src="images/people/anne-danielsen.jpg" alt=""><p>Anne Danielsen</p></div>
+      <div><img src="images/people/rainer-polak.jpg" alt=""><p>Rainer Polak</p></div>
+      <div><img src="images/people/kyrre-glette.jpg" alt=""><p>Kyrre Glette</p></div>
+      <div><img src="images/people/shabari-rao.jpg" alt=""><p>Shabari Rao</p></div>
+      <div><img src="images/agents/claude.jpg" alt=""><p>Claude</p></div>
+      <div><img src="images/agents/cursor.jpg" alt=""><p>Cursor</p></div>
+      <div><img src="images/agents/githubcopilot.jpg" alt=""><p>GitHub Copilot</p></div>
+      <div><img src="images/agents/googlegemini.jpg" alt=""><p>Gemini</p></div>
+    </div>
+    <p class="thanks fragment">and close to 1000 participants</p>
+    <div style="height:150px"></div>
+    <img class="corner-logo" src="images/uio-seal.svg" alt="University of Oslo" style="left:0">
+    <img class="corner-logo" src="images/fourms-logo.png" alt="fourMs Lab" style="left:150px">
+    <img class="corner-logo" src="images/mishmash-tile-purple.svg" alt="MishMash" style="left:300px;padding:0">
+    <img class="corner-logo" src="images/ritmo-emblem.svg" alt="RITMO" style="left:450px">
+    <img class="corner-logo rcn" src="images/rcn-funded-by.svg" alt="Funded by the Research Council of Norway">
+    <aside class="notes">Thank you. The data are in the Oslo Standstill Database on Zenodo, and the book Still Standing, with Cambridge University Press, is in its final stages; the cover is a placeholder made from the manuscript's title page and the shoes from the year of daily standstills. (Click for the QR code to the data.) Bottom left are those whose shoulders I stand on: the University of Oslo, the fourMs Lab, MishMash and RITMO; on the right the Research Council of Norway, which has funded most of it. Questions.</aside>
+  </section>
+  <section class="center-slide refs-slide" data-depth="more">
+    <h3>References</h3>
+    <div class="refs">
+      <div><p>Al-Ghawanmeh, F. (2025). Ṭarab and AI: Maqām Music Generation through Machine Translation and Motion Capture. <em>PhD thesis, University of Oslo and University of Lorraine</em>.</p><p>Cameron, D. J., Dotov, D., Flaten, E., et al. (2022). Undetectable Very-Low Frequency Sound Increases Dancing at a Live Concert. <em>Current Biology</em>.</p><p>Danielsen, A., Nymoen, K., Anderson, E., et al. (2019). Where Is the Beat in That Note? Effects of Attack, Duration, and Frequency on the Perceived Timing of Musical and Quasi-Musical Sounds. <em>Journal of Experimental Psychology: Human Perception and Performance</em>.</p><p>González Sánchez, V., Zelechowska, A. & Jensenius, A. R. (2018). Correspondences Between Music and Involuntary Human Micromotion During Standstill. <em>Frontiers in Psychology</em>.</p><p>González Sánchez, V., Zelechowska, A. & Jensenius, A. R. (2019). Analysis of the Movement-Inducing Effects of Music through the Fractality of Head Sway during Standstill. <em>Journal of Motor Behavior</em>.</p><p>Jensenius, A. R., Nymoen, K., Skogstad, S., et al. (2012). A Study of the Noise-Level in Two Infrared Marker-Based Motion Capture Systems. <em>Proceedings of the Sound and Music Computing Conference</em>.</p><p>Jensenius, A. R., Bjerkestrand, K. A. V. & Johnson, V. (2014). How Still Is Still? Exploring Human Standstill for Artistic Applications. <em>International Journal of Arts and Technology</em>.</p><p>Jensenius, A. R., Zelechowska, A. & Gonzalez-Sanchez, V. E. (2017). The Musical Influence on People's Micromotion When Standing Still in Groups. <em>Proceedings of the Sound and Music Computing Conference</em>.</p><p>Jensenius, A. R. (2022). Sound Actions: Conceptualizing Musical Instruments. <em>MIT Press</em>.</p><p>Jensenius, A. R. (2023). How Long Is 10 Minutes? Exploring Spatiotemporality with a Group of Musicians and Dancers. <em>Performing Time: Synchrony and Temporal Flow in Music and Dance</em>.</p></div>
+      <div><p>Solberg, R. T. & Jensenius, A. R. (2017). Group Behaviour and Interpersonal Synchronization to Electronic Dance Music. <em>Musicae Scientiae</em>.</p><p>Solberg, R. T. (2018). Experiences with Electronic Dance Music: A Multi-Method Study on Associations between Musical Characteristics, Embodiment and Peak-Pleasurable Responses. <em>PhD thesis, University of Agder</em>.</p><p>Swarbrick, D. (2023). Being in Concert: Audience Emotion, Motion, and Social Connectedness. <em>PhD thesis, University of Oslo</em>.</p><p>Swarbrick, D., Danielsen, A., Vuoskoski, J. K., et al. (2025). The Effects of “Feeling Moved” and “Groove” on Standstill. <em>Music Perception</em>.</p><p>Upham, F., Høffding, S. & Rosas, F. E. (2024). The Stilling Response: From Musical Silence to Audience Stillness. <em>Music & Science</em>.</p><p>Zelechowska, A., González Sánchez, V. E., Laeng, B., et al. (2020a). Headphones or Speakers? An Exploratory Study of Their Effects on Spontaneous Body Movement to Rhythmic Music. <em>Frontiers in Psychology</em>.</p><p>Zelechowska, A. (2020). Irresistible Movement: The Role of Musical Sound, Individual Differences and Listening Context in Movement Responses to Music. <em>PhD thesis, University of Oslo</em>.</p><p>Zelechowska, A., Sanchez, V. G. & Jensenius, A. R. (2020b). Standstill to the 'Beat': Differences in Involuntary Movement Responses to Simple and Complex Rhythms. <em>Proceedings of the 15th International Conference on Audio Mostly</em>.</p><p>Zelechowska, A., González Sánchez, V. E., Laeng, B., et al. (2020c). Who Moves to Music? Empathic Concern Predicts Spontaneous Movement Responses to Rhythm and Music. <em>Music & Science</em>.</p></div>
+    </div>
+    <aside class="notes">The papers and theses named on the slides, in full. Written by tools/add_refs.py from the book's bibliography.</aside>
+  </section>
+  <section data-depth="more">
+    <div class="layers" style="width:1600px">
+      <img class="fig keep" src="images/fig-cocreation-0.svg" data-dark="images/fig-cocreation-dark-0.svg" alt="Alexander and an AI agent">
+      <img class="fig keep fragment" src="images/fig-cocreation-1.svg" data-dark="images/fig-cocreation-dark-1.svg" alt="First round: idea and sources, first draft">
+      <img class="fig keep fragment" src="images/fig-cocreation-2.svg" data-dark="images/fig-cocreation-dark-2.svg" alt="Second round: comments, new version">
+      <img class="fig keep fragment" src="images/fig-cocreation-3.svg" data-dark="images/fig-cocreation-dark-3.svg" alt="Third round: more comments, new version">
+      <img class="fig keep fragment" src="images/fig-cocreation-4.svg" data-dark="images/fig-cocreation-dark-4.svg" alt="The slides in the middle; the responsibility is mine">
+    </div>
+    <aside class="notes">Full disclosure: how this talk was made. I gave an AI agent the abstract and my sources: the Still Standing manuscript, its numbered analysis reports and earlier decks; this one is built on the Norwegian deck for the symposium on time. (Click.) It made a first draft, with the charts drawn from the reports' data. (Click.) I commented, and it made a new version. (Click.) And again, many times, each round a little tighter. (Click.) The result is the slides, and the responsibility for the claims is mine. No number was typed by hand: every number on the slides and in the notes is read from the reports by the script that draws the charts, so a changed report changes the slide. It is not a matter of pressing one button; it is an iterative process, much like rehearsing a piece of music.</aside>
+  </section>
+</section>
+
+</div>
+</div>
+<div class="footer">Alexander Refsum Jensenius · University of Oslo · McMaster University, 19 November 2026</div>
+<div id="depth" aria-hidden="true"></div>
+<div id="sound" aria-live="polite"></div>
+<script src="images/numbers.js"></script>
+<script src="images/wasp.js"></script>
+<script src="images/gram.js"></script>
+<script src="images/drop.js"></script>
+<script src="images/sound.js"></script>
+<script src="images/band.js"></script>
+<script src="images/cumall.js"></script>
+<script src="images/musictab.js"></script>
+<script src="images/musictab-tables.js"></script>
+<script src="images/metre.js"></script>
+<script src="images/sex.js"></script>
+<script src="images/yearbody.js"></script>
+<script src="images/process.js"></script>
+<script src="images/traces.js"></script>
+<script src="images/atlas.js"></script>
+<script src="images/dance-floors.js"></script>
+<script src="images/leader.js"></script>
+<script src="images/signature.js"></script>
+<script src="images/dancecurve.js"></script>
+<script>
+  // Fill every data-n span from numbers.js (tools/make_figures.py), the small scripts written beside it
+  // (gram.js, wasp.js, atlas.js) and the meta in traces.js (tools/make_traces.py).
+  document.querySelectorAll('[data-n]').forEach(function (el) {
+    var k = el.getAttribute('data-n'), v = window.NUMBERS && window.NUMBERS[k];
+    if (v === undefined && window.TRACES) v = window.TRACES.meta[k];
+    el.textContent = v === undefined ? '[missing ' + k + ']' : v;
+  });
+</script>
+<script src="lib/reveal/reveal.js"></script>
+<script src="lib/reveal-plugin/notes/notes.js"></script>
+<script src="lib/standstill.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    // 16:9. Reveal scales this to the screen and keeps the aspect ratio.
+    width: 1920, height: 1080, margin: 0.04,
+    minScale: 0.2, maxScale: 2.5,
+    slideNumber: false,
+    navigationMode: 'default',
+    transition: 'fade',
+    controlsTutorial: false,
+    preloadIframes: false,
+    fragments: !/[?&]fragments=false\b/.test(location.search),
+    plugins: [ RevealNotes ]
+  });
+  Standstill.init(Reveal);
+</script>
+<script src="lib/atlas.js"></script>
+<script>
+  // Light/dark mode. Figures drawn in two versions carry data-dark (and data-light, or their src is the
+  // light one); they swap file with the theme instead of being inverted.
+  function swapFigures() {
+    var dark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('img[data-dark]').forEach(function (im) {
+      if (!im.dataset.light) im.dataset.light = im.getAttribute('src');
+      im.src = dark ? im.dataset.dark : im.dataset.light;
+    });
+  }
+  swapFigures();
+  function setTheme(dark) {
+    document.documentElement.classList.toggle('dark', dark);
+    swapFigures();
+    try { localStorage.setItem('mcmaster-colloquium-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    document.dispatchEvent(new Event('themechange'));   // lib/standstill.js redraws its canvases
+  }
+  function toggleTheme() { setTheme(!document.documentElement.classList.contains('dark')); }
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+  Reveal.addKeyBinding({ keyCode: 68, key: 'D', description: 'Toggle light/dark mode' }, toggleTheme);
+  // The footer and the depth label go away on photographs and on the closing slide, whose emblems take the
+  // corners; the depth label reads data-depth, and a slide without one is basics.
+  function onSlide(ev) {
+    var sl = ev.currentSlide || Reveal.getCurrentSlide();
+    var surface = !!(sl && (sl.hasAttribute('data-background-color') || sl.hasAttribute('data-background-image') || sl.classList.contains('corners')));
+    document.body.classList.toggle('on-surface', surface);
+    document.getElementById('depth').textContent = sl ? (sl.getAttribute('data-depth') || 'basics') : '';
+  }
+  Reveal.on('ready', onSlide); Reveal.on('slidechanged', onSlide);
+</script>
+</body>
+</html>

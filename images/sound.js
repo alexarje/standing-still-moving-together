@@ -1,0 +1,2 @@
+// Written by tools/make_sound_stilling.py; do not edit.
+Object.assign(window.NUMBERS = window.NUMBERS || {}, {"snd_tone_hz": "77", "snd_seen_hz": "43", "snd_power_fast": "603", "snd_power_body": "-1", "snd_paper_diff": "0.005", "snd_m120_tone_hz": "78", "snd_m120_seen_hz": "42", "snd_left_pct": "61", "snd_n": "116", "snd_120": "-1.2", "snd_120_p": "0.315", "snd_music": "0.5", "snd_edm": "1.1", "snd_edm_p": "0.545", "stl_pts": "257", "stl_min": "84", "stl_applause_x": "8", "stl_n": "85"});

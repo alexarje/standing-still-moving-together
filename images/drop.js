@@ -1,0 +1,2 @@
+// Written by tools/make_drop.py from report 113; do not edit.
+window.NUMBERS = Object.assign(window.NUMBERS || {}, {"drop_n_dancers": "18", "drop_n_edm": "71", "drop_dance_bd_pct": "48", "drop_dance_drop_x": "2.6", "drop_edm_pre": "5.49", "drop_edm_breakdown": "5.38", "drop_edm_buildup": "5.35", "drop_edm_postdrop": "5.42", "drop_edm_drop_pct": "−1.2", "drop_edm_drop_p": "0.46", "drop_edm_drop_mde_pct": "5.4", "drop_edm_minute_vs_silence_pct": "2.9"});
